@@ -1,4 +1,9 @@
-export type ReportTabId = 'resumen' | 'arquitectura' | 'diseno' | 'metricas';
+export type ReportTabId =
+  | 'resumen'
+  | 'metodologia'
+  | 'metricas'
+  | 'arquitectura'
+  | 'diseno';
 
 export interface SurveyBarMetric {
   label: string;
@@ -24,4 +29,12 @@ export interface ColorToken {
   role: string;
   usage: string;
   darkText?: boolean;
+}
+
+export interface BibliographyGroup {
+  category: string;
+  entries: Array<{
+    num: number;
+    citation: string;
+  }>;
 }

@@ -242,7 +242,7 @@ export const HomePage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Direct Links to the 4 Report Sections */}
+              {/* Direct Links to the Report Sections */}
               <div className="mt-6 flex flex-wrap gap-2.5">
                 <Link to="/reporte?tab=resumen" className="btn-editorial-primary px-6 py-3">
                   Abrir Reporte Completo
@@ -255,10 +255,10 @@ export const HomePage: React.FC = () => {
                   Encuesta (n=108) & Finanzas
                 </Link>
                 <Link
-                  to="/reporte?tab=arquitectura"
+                  to="/reporte?tab=metodologia"
                   className="inline-flex items-center border border-[#E8DFDC] bg-white px-4 py-3 text-[11px] font-medium uppercase tracking-[0.14em] text-[#141312] transition-colors hover:border-[#141312]"
                 >
-                  Arquitectura
+                  Metodología & Bibliografía
                 </Link>
                 <Link
                   to="/reporte?tab=diseno"

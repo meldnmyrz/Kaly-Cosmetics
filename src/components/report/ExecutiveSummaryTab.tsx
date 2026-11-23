@@ -1,28 +1,43 @@
 import React from 'react';
-import { Sparkles, Target, Compass, Layers, CheckCircle2, BookOpen } from 'lucide-react';
-import { EXECUTIVE_HIGHLIGHTS, PROJECT_META } from '../../data/reportData';
+import {
+  Sparkles,
+  Target,
+  Compass,
+  Layers,
+  CheckCircle2,
+  BookOpen,
+  FileText,
+  Lightbulb,
+  Scale,
+} from 'lucide-react';
+import {
+  EXECUTIVE_HIGHLIGHTS,
+  PROJECT_META,
+  SOLUTION_ALTERNATIVES,
+  THEORETICAL_FRAMEWORK,
+} from '../../data/reportData';
 
 const SKINCARE_STEPS = [
-  { step: '01', name: 'Limpieza', items: 'Jabones suaves, aguas micelares y desmaquillantes' },
-  { step: '02', name: 'Preparación', items: 'Tónicos equilibrantes y exfoliantes gentiles' },
-  { step: '03', name: 'Tratamiento', items: 'Sueros activos (Centella, Ácido Hialurónico, Niacinamida)' },
-  { step: '04', name: 'Hidratación', items: 'Cremas ligeras y geles para piel mixta/grasa' },
-  { step: '05', name: 'Protección', items: 'Protector solar diario de acabado invisible' },
+  { step: '01', name: 'Limpieza', items: 'Jabones, aguas micelares y desmaquillantes' },
+  { step: '02', name: 'Preparación', items: 'Tónicos y exfoliantes' },
+  { step: '03', name: 'Tratamiento', items: 'Sueros (ácido hialurónico, niacinamida, vitamina C, Centella)' },
+  { step: '04', name: 'Hidratación', items: 'Cremas y geles hidratantes' },
+  { step: '05', name: 'Protección', items: 'Bloqueador solar diario' },
 ];
 
 const SPECIFIC_OBJECTIVES = [
-  'Identificar los tipos de maquillaje, skincare y marcas preferidas por consumidores de 18 a 24 años en Cadereyta Jiménez y Los Ramones.',
-  'Determinar el rango de precios óptimo ($100–$350 maquillaje y $150–$400 skincare) con mayor aceptación comercial.',
-  'Conocer la frecuencia (48% mensual), puntos de compra y hábitos de reposición en el mercado local.',
-  'Evaluar los factores determinantes de compra: calidad (53 menciones), precio (31), ingredientes (31) y marca (30).',
-  'Validar Instagram Reels y TikTok como canales principales de descubrimiento, asesoría y catálogo digital.',
-  'Proponer estrategias diferenciadoras como kits "Piel Sana + Maquillaje Bonito" sin requerir local físico inicial.',
+  'Identificar los tipos de maquillaje y productos para el cuidado de la piel, así como las marcas de mayor preferencia entre los consumidores de 18 a 24 años de Cadereyta Jiménez.',
+  'Determinar el rango de precios que los consumidores están dispuestos a pagar por los productos que ofrecerá Kaly Cosmetic’s.',
+  'Conocer la frecuencia, los lugares y los medios que utilizan los consumidores para comprar maquillaje y productos para el cuidado de la piel.',
+  'Analizar los factores que influyen en la decisión de compra, como el precio, la calidad, la marca, la presentación y las recomendaciones.',
+  'Identificar los canales digitales y comerciales que los consumidores prefieren para conocer, consultar y adquirir este tipo de productos.',
+  'Evaluar la demanda potencial y proponer estrategias de promoción y comercialización que favorezcan la introducción de Kaly Cosmetic’s en el mercado de Cadereyta Jiménez.',
 ];
 
 export const ExecutiveSummaryTab: React.FC = () => {
   return (
-    <div className="animate-fade-in space-y-12">
-      {/* KPI Highlight Strip */}
+    <div className="animate-fade-in space-y-10">
+      {/* KPI Highlight Strip (100% Real Document Figures) */}
       <div className="grid grid-cols-1 gap-px border border-[#E8DFDC] bg-[#E8DFDC] sm:grid-cols-2 lg:grid-cols-4">
         {EXECUTIVE_HIGHLIGHTS.map((item) => (
           <div key={item.label} className="bg-white p-6">
@@ -42,53 +57,39 @@ export const ExecutiveSummaryTab: React.FC = () => {
         ))}
       </div>
 
-      {/* Value Proposition & Institutional Metadata */}
+      {/* Official Abstract (Resumen) + Institutional Metadata */}
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
         <div className="border border-[#E8DFDC] bg-[#FAF7F5] p-8 lg:col-span-7">
           <div className="flex items-center gap-2 text-[#B58681]">
-            <Sparkles className="h-4 w-4" />
+            <FileText className="h-4 w-4" />
             <span className="text-[10px] font-semibold uppercase tracking-[0.2em]">
-              Propuesta de Valor Diferenciadora
+              Resumen Oficial del Proyecto Integrador
             </span>
           </div>
           <h3 className="mt-3 font-serif text-3xl font-medium text-[#141312]">
-            «No solo vender un labial: ofrecer piel sana + maquillaje bonito»
+            «Piel sana + maquillaje bonito» para Cadereyta Jiménez y Los Ramones
           </h3>
           <p className="mt-4 text-sm leading-relaxed text-[#4E4744]">
-            <strong>Kaly Cosmetic’s</strong> nace al detectar una brecha clara en{' '}
-            <strong>{PROJECT_META.region}</strong>: la dificultad para conseguir maquillaje
-            original importado de Estados Unidos (e.l.f., NYX, Maybelline, L’Oréal, Pixi, Airspun,
-            Real Techniques) y skincare viral de K-Beauty (SKIN1004 Centella, CeraVe, The Ordinary)
-            a precios accesibles, sin intermediarios costosos ni largos tiempos de espera.
+            El proyecto integrador <strong>Kaly Cosmetic’s</strong> analiza las preferencias y
+            hábitos de compra de los consumidores de <strong>18 a 24 años</strong> de{' '}
+            <strong>Cadereyta Jiménez, Nuevo León</strong>, para identificar la demanda potencial
+            de maquillaje y cuidado de la piel (skincare), así como establecer estrategias
+            comerciales que evalúen la viabilidad del negocio.
           </p>
           <p className="mt-3 text-sm leading-relaxed text-[#4E4744]">
-            Respaldado por un crecimiento del <strong>45% del mercado skincare en México</strong> en
-            los últimos 3 años (Statista, 2023), el modelo combina catálogo digital interactivo,
-            asesoría personalizada por tipo de piel (con énfasis en piel mixta y grasa) y difusión
-            orgánica en Instagram Reels y TikTok.
+            Mediante una metodología de <strong>enfoque mixto</strong>, alcance exploratorio y
+            descriptivo, y diseño no experimental transversal (encuesta digital a{' '}
+            <strong>108 participantes</strong>), se validó una fuerte demanda en bases, correctores,
+            rímel, sueros hidratantes, cremas con Centella Asiática, protectores solares y
+            limpiadores faciales, con marcas favoritas como{' '}
+            <strong>e.l.f., NYX, Maybelline, L’Oréal, CeraVe, The Ordinary y SKIN1004</strong>.
           </p>
-
-          <div className="mt-6 grid grid-cols-1 gap-4 border-t border-[#E8DFDC] pt-6 sm:grid-cols-2">
-            <div>
-              <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8C6B5D]">
-                Planteamiento del Problema
-              </p>
-              <p className="mt-1.5 text-xs leading-relaxed text-[#6E6561]">
-                Ante un mercado saturado de marcas y precios variables, era indispensable medir con
-                datos reales qué productos, tonos, marcas y presupuestos impulsan la intención de
-                compra del público joven local.
-              </p>
-            </div>
-            <div>
-              <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8C6B5D]">
-                Alcance & Metodología
-              </p>
-              <p className="mt-1.5 text-xs leading-relaxed text-[#6E6561]">
-                Enfoque mixto, alcance exploratorio-descriptivo, diseño no experimental y
-                transversal con encuesta digital aplicada a <strong>108 participantes</strong>.
-              </p>
-            </div>
-          </div>
+          <p className="mt-3 text-sm leading-relaxed text-[#4E4744]">
+            El <strong>72%</strong> está dispuesto a pagar entre <strong>$100 y $350</strong> por
+            maquillaje y entre <strong>$150 y $400</strong> por skincare; el <strong>48%</strong>{' '}
+            compra mensualmente y los canales digitales líderes son{' '}
+            <strong>Instagram y TikTok</strong>.
+          </p>
         </div>
 
         {/* Institutional Card */}
@@ -97,20 +98,22 @@ export const ExecutiveSummaryTab: React.FC = () => {
             <div className="flex items-center gap-2 text-[#B58681]">
               <BookOpen className="h-4 w-4" />
               <span className="text-[10px] font-semibold uppercase tracking-[0.2em]">
-                Ficha Técnica Académica
+                Portada Técnica Académica
               </span>
             </div>
             <h4 className="mt-3 font-serif text-2xl font-medium text-[#141312]">
               {PROJECT_META.institution}
             </h4>
             <p className="mt-1 text-xs uppercase tracking-[0.14em] text-[#8C6B5D]">
-              Proyecto Integrador · {PROJECT_META.date}
+              {PROJECT_META.documentType} · {PROJECT_META.date}
             </p>
 
             <dl className="mt-6 space-y-3 border-t border-[#E8DFDC] pt-5 text-sm">
               <div className="flex justify-between gap-4">
-                <dt className="text-[#6E6561]">Equipo:</dt>
-                <dd className="font-mono text-xs font-medium text-[#141312]">{PROJECT_META.team}</dd>
+                <dt className="text-[#6E6561]">Presentan (Equipo):</dt>
+                <dd className="font-mono text-xs font-semibold text-[#141312]">
+                  {PROJECT_META.team}
+                </dd>
               </div>
               <div className="flex justify-between gap-4">
                 <dt className="text-[#6E6561]">Líder del Proyecto:</dt>
@@ -129,38 +132,84 @@ export const ExecutiveSummaryTab: React.FC = () => {
 
           <div className="mt-6 bg-[#F4E3E0]/60 p-4">
             <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#141312]">
-              Delimitación del Prototipo
+              Alcance y Delimitación
             </p>
             <p className="mt-1 text-xs leading-relaxed text-[#4E4744]">
-              E-commerce académico de gestión privada 100% digital: elimina costos de renta de local
-              físico y maximiza el margen operativo inicial del 20%.
+              Propuesta de emprendimiento con fines académicos enfocada en planeación, investigación
+              de mercado y estrategias comerciales 100% digitales para Cadereyta Jiménez y Los
+              Ramones, sin requerir establecimiento físico inicial.
             </p>
           </div>
         </div>
       </div>
 
-      {/* General & Specific Objectives */}
+      {/* Planteamiento del Problema, Antecedentes y Justificación */}
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <article className="border border-[#E8DFDC] bg-white p-7">
+          <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#B58681]">
+            Sección 01
+          </span>
+          <h3 className="mt-2 font-serif text-2xl text-[#141312]">Planteamiento del Problema</h3>
+          <p className="mt-3 text-xs leading-relaxed text-[#4E4744]">
+            El sector cosmético presenta amplia competencia en marcas, variedad y precios. El reto
+            central de Kaly Cosmetic’s es determinar con precisión qué productos de maquillaje y
+            skincare tienen mayor aceptación en su público local, cuáles son las marcas preferidas,
+            cuánto están dispuestos a pagar y con qué frecuencia compran, para sustentar decisiones
+            de inventario, precios competitivos y promoción digital.
+          </p>
+        </article>
+
+        <article className="border border-[#E8DFDC] bg-white p-7">
+          <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#B58681]">
+            Sección 02
+          </span>
+          <h3 className="mt-2 font-serif text-2xl text-[#141312]">Antecedentes</h3>
+          <p className="mt-3 text-xs leading-relaxed text-[#4E4744]">
+            En Cadereyta Jiménez y Los Ramones, N.L., se detectó poca disponibilidad de cosméticos
+            originales importados de Estados Unidos. Kaly Cosmetic’s inició enfocada en maquillaje
+            original y evolucionó al investigar proveedores y tendencias en TikTok/Instagram,
+            integrando skincare (limpiadores, sérums, cremas y protectores solares) con venta en
+            redes y entregas personales sin local físico.
+          </p>
+        </article>
+
+        <article className="border border-[#E8DFDC] bg-white p-7">
+          <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#B58681]">
+            Sección 03
+          </span>
+          <h3 className="mt-2 font-serif text-2xl text-[#141312]">Justificación</h3>
+          <p className="mt-3 text-xs leading-relaxed text-[#4E4744]">
+            En lo académico, integra competencias de administración, mercadotecnia, ventas,
+            atención al cliente y emprendimiento. En lo comercial y social, facilita el acceso a
+            productos nacionales e internacionales confiables a precios accesibles, respaldando cada
+            decisión en la encuesta real aplicada al mercado objetivo local.
+          </p>
+        </article>
+      </div>
+
+      {/* Objetivos General y Específicos */}
       <div className="border border-[#E8DFDC] bg-white p-8">
         <div className="flex items-center gap-2 text-[#B58681]">
           <Target className="h-4 w-4" />
           <span className="text-[10px] font-semibold uppercase tracking-[0.2em]">
-            Objetivos Estratégicos
+            Objetivos de la Investigación
           </span>
         </div>
         <h3 className="mt-2 font-serif text-3xl text-[#141312]">Objetivo General</h3>
         <p className="mt-2 max-w-4xl text-sm leading-relaxed text-[#4E4744]">
           Analizar las preferencias, necesidades y hábitos de compra de los consumidores de 18 a 24
-          años de Cadereyta Jiménez, Nuevo León, mediante investigación de mercados cuantitativa y
-          cualitativa para identificar la demanda potencial de maquillaje y skincare y establecer
-          estrategias comerciales que validen la viabilidad de Kaly Cosmetic’s.
+          años de Cadereyta Jiménez, Nuevo León, mediante una investigación de mercados de enfoque
+          cuantitativo, con la finalidad de identificar la demanda potencial de maquillaje y
+          productos para el cuidado de la piel, así como establecer estrategias comerciales que
+          permitan evaluar la viabilidad de Kaly Cosmetic’s.
         </p>
 
-        <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-7 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
           {SPECIFIC_OBJECTIVES.map((obj, idx) => (
             <div key={idx} className="border border-[#E8DFDC] bg-[#FAF7F5] p-5">
               <div className="flex items-center gap-2 text-[#141312]">
                 <CheckCircle2 className="h-4 w-4 text-[#B58681]" />
-                <span className="font-mono text-[11px] text-[#8C6B5D]">OBJ-0{idx + 1}</span>
+                <span className="font-mono text-[11px] text-[#8C6B5D]">OBJETIVO 0{idx + 1}</span>
               </div>
               <p className="mt-2.5 text-xs leading-relaxed text-[#4E4744]">{obj}</p>
             </div>
@@ -168,14 +217,43 @@ export const ExecutiveSummaryTab: React.FC = () => {
         </div>
       </div>
 
-      {/* 5 Stages of Skincare Model from Theoretical Framework */}
+      {/* Marco Teórico Completo (5 Ejes + Autores) */}
+      <div className="border border-[#E8DFDC] bg-[#FAF7F5] p-8">
+        <div className="flex items-center gap-2 text-[#B58681]">
+          <Scale className="h-4 w-4" />
+          <span className="text-[10px] font-semibold uppercase tracking-[0.2em]">
+            Marco Teórico Fundamentado
+          </span>
+        </div>
+        <h3 className="mt-2 font-serif text-3xl text-[#141312]">
+          Fundamentos de Emprendimiento, Mercados y Belleza Integral
+        </h3>
+
+        <div className="mt-6 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {THEORETICAL_FRAMEWORK.map((item) => (
+            <div key={item.title} className="flex flex-col justify-between border border-[#E8DFDC] bg-white p-6">
+              <div>
+                <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#B58681]">
+                  {item.author}
+                </p>
+                <h4 className="mt-2 font-serif text-xl font-medium text-[#141312]">
+                  {item.title}
+                </h4>
+                <p className="mt-2.5 text-xs leading-relaxed text-[#4E4744]">{item.content}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* 5 Stages of Skincare Model */}
       <div className="border border-[#E8DFDC] bg-[#F4E3E0]/40 p-8">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <div className="flex items-center gap-2 text-[#8C6B5D]">
               <Layers className="h-4 w-4" />
               <span className="text-[10px] font-semibold uppercase tracking-[0.2em]">
-                Marco Teórico · Belleza Integral (AAD, 2022)
+                Academia Americana de Dermatología (AAD, 2022)
               </span>
             </div>
             <h3 className="mt-2 font-serif text-3xl text-[#141312]">
@@ -184,7 +262,7 @@ export const ExecutiveSummaryTab: React.FC = () => {
           </div>
           <span className="inline-flex items-center gap-1.5 bg-[#141312] px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.16em] text-white">
             <Compass className="h-3.5 w-3.5 text-[#EBD7D4]" />
-            Tendencia K-Beauty + Centella
+            +45% Crecimiento Skincare MX (Statista, 2023)
           </span>
         </div>
 
@@ -198,6 +276,39 @@ export const ExecutiveSummaryTab: React.FC = () => {
               <p className="mt-2 text-xs leading-relaxed text-[#6E6561]">{s.items}</p>
             </div>
           ))}
+        </div>
+      </div>
+
+      {/* Alternativas de Solución */}
+      <div className="border border-[#E8DFDC] bg-white p-8">
+        <div className="flex items-center gap-2 text-[#B58681]">
+          <Lightbulb className="h-4 w-4" />
+          <span className="text-[10px] font-semibold uppercase tracking-[0.2em]">
+            Estrategia Comercial
+          </span>
+        </div>
+        <h3 className="mt-2 font-serif text-3xl text-[#141312]">Alternativas de Solución</h3>
+
+        <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
+          {SOLUTION_ALTERNATIVES.map((alt) => (
+            <div key={alt.num} className="flex gap-4 border border-[#E8DFDC] bg-[#FAF7F5] p-5">
+              <span className="font-serif text-3xl text-[#B58681]">{alt.num}</span>
+              <div>
+                <h4 className="font-sans text-xs font-semibold uppercase tracking-[0.14em] text-[#141312]">
+                  {alt.title}
+                </h4>
+                <p className="mt-2 text-xs leading-relaxed text-[#4E4744]">{alt.detail}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-6 flex items-center gap-3 border-t border-[#E8DFDC] pt-5 text-xs text-[#6E6561]">
+          <Sparkles className="h-4 w-4 shrink-0 text-[#B58681]" />
+          <span>
+            Lo que buscan las clientas de Kaly: productos originales que no irriten, asesoría por
+            tipo de piel, combos maquillaje + skincare y precio accesible.
+          </span>
         </div>
       </div>
     </div>
