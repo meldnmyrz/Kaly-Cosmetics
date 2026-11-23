@@ -12,6 +12,7 @@ import {
   Instagram,
 } from 'lucide-react';
 import { PRODUCTS } from '../data/products';
+import { PROJECT_META } from '../data/reportData';
 import { ProductCard } from '../components/ui/ProductCard';
 
 const HERO_SLIDES = [
@@ -193,6 +194,122 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
+      {/* 2.5 Proyecto Integrador UTC — Portada Ejecutiva al Inicio */}
+      <section className="border-b border-[#E8DFDC] bg-[#FAF7F5] px-4 py-14 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-12">
+            {/* Left: Institutional Cover & Direct Report Access */}
+            <div className="lg:col-span-7">
+              <div className="inline-flex items-center gap-2 bg-[#141312] px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#EBD7D4]">
+                <FileBarChart2 className="h-3.5 w-3.5" />
+                {PROJECT_META.institution} · Proyecto Integrador
+              </div>
+
+              <h2 className="mt-4 font-serif text-3xl font-medium leading-tight text-[#141312] sm:text-4xl">
+                Reporte Técnico & Plataforma E-Commerce: Kaly Cosmetic’s
+              </h2>
+
+              <p className="mt-3 text-sm leading-relaxed text-[#4E4744]">
+                Propuesta de negocio y estudio de mercado en{' '}
+                <strong>{PROJECT_META.region}</strong> orientada a consumidores de{' '}
+                <strong>18 a 24 años</strong>, integrando maquillaje original importado y
+                skincare K-Beauty con Centella Asiática.
+              </p>
+
+              {/* Institutional Metadata Strip */}
+              <div className="mt-6 grid grid-cols-1 gap-4 border-y border-[#E8DFDC] py-4 text-xs sm:grid-cols-3">
+                <div>
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#B58681]">
+                    Equipo · Fecha
+                  </p>
+                  <p className="mt-1 font-mono font-semibold text-[#141312]">
+                    {PROJECT_META.team} · 3/12/26
+                  </p>
+                </div>
+                <div>
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#B58681]">
+                    Líder del Proyecto
+                  </p>
+                  <p className="mt-1 font-medium text-[#141312]">{PROJECT_META.leader}</p>
+                </div>
+                <div>
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#B58681]">
+                    Asesores Académicos
+                  </p>
+                  <p className="mt-1 leading-snug text-[#4E4744]">
+                    Lic. Carlos C. Juárez · MC. Jessica Y. Guzman · Lic. Lucero de los Á. Nájera
+                  </p>
+                </div>
+              </div>
+
+              {/* Direct Links to the 4 Report Sections */}
+              <div className="mt-6 flex flex-wrap gap-2.5">
+                <Link to="/reporte?tab=resumen" className="btn-editorial-primary px-6 py-3">
+                  Abrir Reporte Completo
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link
+                  to="/reporte?tab=metricas"
+                  className="btn-editorial-outline px-5 py-3"
+                >
+                  Encuesta (n=108) & Finanzas
+                </Link>
+                <Link
+                  to="/reporte?tab=arquitectura"
+                  className="inline-flex items-center border border-[#E8DFDC] bg-white px-4 py-3 text-[11px] font-medium uppercase tracking-[0.14em] text-[#141312] transition-colors hover:border-[#141312]"
+                >
+                  Arquitectura
+                </Link>
+                <Link
+                  to="/reporte?tab=diseno"
+                  className="inline-flex items-center border border-[#E8DFDC] bg-white px-4 py-3 text-[11px] font-medium uppercase tracking-[0.14em] text-[#141312] transition-colors hover:border-[#141312]"
+                >
+                  Brand Book UI/UX
+                </Link>
+              </div>
+            </div>
+
+            {/* Right: 4 Executive KPI Cards */}
+            <div className="grid grid-cols-2 gap-4 lg:col-span-5">
+              <div className="border border-[#E8DFDC] bg-white p-5 sm:p-6">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#B58681]">
+                  Investigación
+                </p>
+                <p className="mt-2 font-serif text-4xl text-[#141312]">108</p>
+                <p className="mt-1 text-xs text-[#6E6561]">
+                  Encuestados en Cadereyta y Los Ramones
+                </p>
+              </div>
+              <div className="border border-[#E8DFDC] bg-white p-5 sm:p-6">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#B58681]">
+                  Disposición Precio
+                </p>
+                <p className="mt-2 font-serif text-4xl text-[#141312]">72%</p>
+                <p className="mt-1 text-xs text-[#6E6561]">Rango $100–$400 MXN validado</p>
+              </div>
+              <div className="border border-[#E8DFDC] bg-[#F4E3E0]/60 p-5 sm:p-6">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8C6B5D]">
+                  Recompra Mensual
+                </p>
+                <p className="mt-2 font-serif text-4xl text-[#141312]">48%</p>
+                <p className="mt-1 text-xs text-[#6E6561]">
+                  Canales líderes: Instagram y TikTok
+                </p>
+              </div>
+              <div className="border border-[#141312] bg-[#141312] p-5 text-white sm:p-6">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#EBD7D4]">
+                  Margen Base
+                </p>
+                <p className="mt-2 font-serif text-4xl text-white">20%</p>
+                <p className="mt-1 text-xs text-[#D3C6C1]">
+                  Lote inicial de 55 piezas ($10,295.72)
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 3. Bestsellers Editorial Grid (exact Reference 3 "BEST SELLERS" block) */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="flex flex-wrap items-end justify-between gap-4 border-b border-[#E8DFDC] pb-5">
@@ -317,68 +434,7 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* 6. Executive Report Quick-Access Editorial Banner */}
-      <section className="border-y border-[#E8DFDC] bg-[#FAF7F5] px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-7">
-            <div className="inline-flex items-center gap-2 border border-[#E8DFDC] bg-white px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#B58681]">
-              <FileBarChart2 className="h-3.5 w-3.5" />
-              Brand Book & Reporte Técnico UTC
-            </div>
-            <h2 className="mt-4 font-serif text-3xl font-medium leading-tight text-[#141312] sm:text-4xl">
-              Conoce la Estrategia, Arquitectura UI/UX y Datos Reales detrás de Kaly Cosmetic’s
-            </h2>
-            <p className="mt-4 text-sm leading-relaxed text-[#6E6561]">
-              Explora nuestro reporte ejecutivo interactivo del Proyecto Integrador (Universidad
-              Tecnológica Cadereyta): resultados de la encuesta a 108 consumidores, estructura real
-              de costos (55 piezas, 20% de margen), sistema de diseño editorial y arquitectura
-              frontend.
-            </p>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Link to="/reporte" className="btn-editorial-primary">
-                Abrir Reporte Ejecutivo
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link to="/reporte?tab=metricas" className="btn-editorial-outline">
-                Ver Encuesta & Finanzas
-              </Link>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-4 lg:col-span-5">
-            <div className="border border-[#E8DFDC] bg-white p-6">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#B58681]">
-                Investigación
-              </p>
-              <p className="mt-2 font-serif text-4xl text-[#141312]">108</p>
-              <p className="mt-1 text-xs text-[#6E6561]">Encuestados en Cadereyta y Los Ramones</p>
-            </div>
-            <div className="border border-[#E8DFDC] bg-white p-6">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#B58681]">
-                Aceptación
-              </p>
-              <p className="mt-2 font-serif text-4xl text-[#141312]">72%</p>
-              <p className="mt-1 text-xs text-[#6E6561]">Rango $100–$400 MXN validado</p>
-            </div>
-            <div className="border border-[#E8DFDC] bg-[#F4E3E0]/55 p-6">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8C6B5D]">
-                Recompra
-              </p>
-              <p className="mt-2 font-serif text-4xl text-[#141312]">48%</p>
-              <p className="mt-1 text-xs text-[#6E6561]">Frecuencia de compra mensual</p>
-            </div>
-            <div className="border border-[#E8DFDC] bg-[#141312] p-6 text-white">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#EBD7D4]">
-                Catálogo Base
-              </p>
-              <p className="mt-2 font-serif text-4xl text-white">16</p>
-              <p className="mt-1 text-xs text-[#D3C6C1]">SKUs interactivos con swatches</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. Community Editorial Strip (Reference 3 @kalycosmetics.mx) */}
+      {/* 6. Community Editorial Strip (Reference 3 @kalycosmetics.mx) */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12">
           <div className="lg:col-span-4">
