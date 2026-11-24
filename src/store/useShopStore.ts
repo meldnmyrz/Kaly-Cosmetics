@@ -189,7 +189,7 @@ export const useShopStore = create<ShopState>()(
       },
     }),
     {
-      name: 'kaly-cosmetics-store-v1',
+      name: 'kaly-cosmetics-store-v2',
       partialize: (state) => ({
         cart: state.cart,
         wishlist: state.wishlist,

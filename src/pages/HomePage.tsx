@@ -62,26 +62,26 @@ const HERO_SLIDES = [
 const POPULAR_CATEGORIES = [
   {
     title: 'Maquillaje',
-    subtitle: 'Bases, correctores y polvos',
-    image: '/images/cat-maquillaje.jpg',
+    subtitle: 'Bases, correctores y rubores',
+    image: '/images/catalog/cat-12.jpg',
     to: '/tienda?categoria=Rostro',
   },
   {
-    title: 'Skincare',
-    subtitle: 'Centella & hidratación',
-    image: '/images/cat-skincare.jpg',
+    title: 'Skincare K-Beauty',
+    subtitle: 'Centella, Anua y COSRX',
+    image: '/images/catalog/cat-30.jpg',
     to: '/tienda?categoria=Skincare',
   },
   {
     title: 'Labios',
-    subtitle: 'Glosses, tintas y mates',
-    image: '/images/cat-labios.jpg',
+    subtitle: 'e.l.f. Gloss, NYX Fat Oil',
+    image: '/images/catalog/cat-21.jpg',
     to: '/tienda?categoria=Labios',
   },
   {
     title: 'Ojos & Cejas',
-    subtitle: 'Máscaras y gel laminado',
-    image: '/images/cat-ojos.jpg',
+    subtitle: 'Sky High & Brow Glue',
+    image: '/images/catalog/cat-01.jpg',
     to: '/tienda?categoria=Ojos',
   },
 ];
@@ -90,7 +90,7 @@ export const HomePage: React.FC = () => {
   const [slideIdx, setSlideIdx] = useState(0);
   const [activeTab, setActiveTab] = useState<HomeReportSection>('resumen');
   const currentSlide = HERO_SLIDES[slideIdx];
-  const bestsellers = PRODUCTS.filter((p) => p.isBestseller).slice(0, 4);
+  const bestsellers = PRODUCTS.filter((p) => p.isBestseller).slice(0, 8);
 
   const prevSlide = () =>
     setSlideIdx((prev) => (prev === 0 ? HERO_SLIDES.length - 1 : prev - 1));
@@ -360,24 +360,25 @@ export const HomePage: React.FC = () => {
               </div>
             </div>
 
-            {/* Clean 4-tile Category Texture Mosaic */}
+            {/* Clean 4-tile Real Catalog Category Showcase */}
             <div className="grid grid-cols-2 gap-4 lg:col-span-7">
               {POPULAR_CATEGORIES.map((cat) => (
                 <Link
                   key={cat.title}
                   to={cat.to}
-                  className="group relative aspect-[4/3] overflow-hidden rounded-lg bg-white shadow-sm"
+                  className="group flex flex-col overflow-hidden rounded-lg border border-[#EFE0E3] bg-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
                 >
-                  <img
-                    src={cat.image}
-                    alt={cat.title}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#3B2629]/65 via-[#3B2629]/15 to-transparent" />
-                  <div className="absolute bottom-3.5 left-4 right-4 text-white">
-                    <p className="font-serif text-xl font-medium">{cat.title}</p>
-                    <p className="text-[11px] text-white/90">{cat.subtitle}</p>
+                  <div className="flex aspect-[4/3] w-full items-center justify-center bg-white p-4">
+                    <img
+                      src={cat.image}
+                      alt={cat.title}
+                      loading="lazy"
+                      className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="border-t border-[#F4EAEC] bg-[#FCF8F9] px-4 py-3 text-center">
+                    <p className="font-serif text-lg font-medium text-[#2A2324]">{cat.title}</p>
+                    <p className="text-[11px] text-[#7D6E71]">{cat.subtitle}</p>
                   </div>
                 </Link>
               ))}
