@@ -7,21 +7,22 @@ const config: Config = {
       colors: {
         kaly: {
           black: '#141312',
-          topbar: '#0F0E0E',
-          ivory: '#FAF7F5',
-          card: '#F6F4F2',
-          blush: '#F4E3E0',
+          topbar: '#C69592',
+          ivory: '#FAF6F4',
+          card: '#F7F6F5',
+          blush: '#F7E3E0',
           vip: '#EBD7D4',
-          rose: '#B58681',
-          roseDark: '#9A6C67',
+          rose: '#C69592',
+          roseDark: '#A5726F',
           bronze: '#8C6B5D',
-          taupe: '#6E6561',
-          border: '#E8DFDC',
+          taupe: '#6E6663',
+          border: '#EAE3E0',
         },
       },
       fontFamily: {
-        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-        sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+        serif: ['"Montserrat"', 'system-ui', 'sans-serif'],
+        display: ['"Montserrat"', 'system-ui', 'sans-serif'],
+        sans: ['"Inter"', 'system-ui', '-apple-system', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
       },
       letterSpacing: {
@@ -30,7 +31,7 @@ const config: Config = {
       },
       keyframes: {
         fadeIn: {
-          '0%': { opacity: '0', transform: 'translateY(8px)' },
+          '0%': { opacity: '0', transform: 'translateY(6px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         slideInRight: {
@@ -39,7 +40,7 @@ const config: Config = {
         },
       },
       animation: {
-        'fade-in': 'fadeIn 0.35s ease-out forwards',
+        'fade-in': 'fadeIn 0.3s ease-out forwards',
         'slide-in-right': 'slideInRight 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards',
       },
     },

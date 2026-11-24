@@ -85,7 +85,7 @@ export const ProductDetailPage: React.FC = () => {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           {/* Left: Gallery */}
           <div className="lg:col-span-6">
-            <div className="relative flex aspect-[4/5] w-full items-center justify-center overflow-hidden rounded-lg border border-[#F0E3E6] bg-white p-6">
+            <div className="relative flex aspect-[4/5] w-full items-center justify-center overflow-hidden border border-[#EAE3E0] bg-white p-6">
               <img
                 src={product.images[selectedImage]}
                 alt={`${product.name} - vista ${selectedImage + 1}`}
@@ -94,13 +94,13 @@ export const ProductDetailPage: React.FC = () => {
               {product.badge && (
                 <span className="editorial-badge absolute left-4 top-4">{product.badge}</span>
               )}
-              {/* Selected Swatch Preview Pill */}
-              <div className="absolute bottom-4 left-4 flex items-center gap-2.5 rounded-full border border-[#EFE0E3] bg-white/95 px-3.5 py-1.5 shadow-sm backdrop-blur-sm">
+              {/* Selected Swatch Preview */}
+              <div className="absolute bottom-4 left-4 flex items-center gap-2.5 border border-[#EAE3E0] bg-white/95 px-3.5 py-1.5 backdrop-blur-sm">
                 <span
                   className="h-4 w-4 rounded-full border border-[#CFC3BE]"
                   style={{ backgroundColor: selectedSwatch.hex }}
                 />
-                <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-[#2A2324]">
+                <span className="font-display text-[10px] font-semibold uppercase tracking-[0.14em] text-[#141312]">
                   {selectedSwatch.name}
                 </span>
               </div>
@@ -113,10 +113,10 @@ export const ProductDetailPage: React.FC = () => {
                   key={idx}
                   type="button"
                   onClick={() => setSelectedImage(idx)}
-                  className={`flex aspect-[4/3] items-center justify-center overflow-hidden rounded-md border bg-white p-2 transition-all ${
+                  className={`flex aspect-[4/3] items-center justify-center overflow-hidden border bg-white p-2 transition-all ${
                     selectedImage === idx
-                      ? 'border-[#A8747C] opacity-100'
-                      : 'border-[#F0E3E6] opacity-65 hover:opacity-100'
+                      ? 'border-[#141312] opacity-100'
+                      : 'border-[#EAE3E0] opacity-65 hover:opacity-100'
                   }`}
                 >
                   <img

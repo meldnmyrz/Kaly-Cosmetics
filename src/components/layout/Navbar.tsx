@@ -8,9 +8,10 @@ import { PRODUCTS } from '../../data/products';
 const NAV_LINKS = [
   { to: '/', label: 'Inicio', exact: true },
   { to: '/tienda', label: 'Tienda' },
-  { to: '/tienda?categoria=Rostro', label: 'Rostro' },
+  { to: '/tienda?categoria=Rostro', label: 'Maquillaje' },
   { to: '/tienda?categoria=Skincare', label: 'Skincare' },
   { to: '/tienda?categoria=Labios', label: 'Labios' },
+  { to: '/tienda?categoria=Herramientas', label: 'Sets & Brochas' },
 ];
 
 export const Navbar: React.FC = () => {
@@ -48,24 +49,24 @@ export const Navbar: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-[#F0E3E6] bg-white/95 backdrop-blur-md">
-      {/* Subtle Dusty-Mauve Announcement Strip */}
-      <div className="bg-[#B3838B] px-4 py-2 text-center text-[10px] font-medium uppercase tracking-[0.2em] text-white">
-        <span>Envío gratis desde $800 MXN</span>
-        <span className="mx-2 opacity-60">•</span>
+    <header className="sticky top-0 z-40 w-full border-b border-[#EFE9E7] bg-white">
+      {/* Lúmé-style Dusty Rose Top Announcement Bar */}
+      <div className="bg-[#C69592] px-4 py-2 text-center text-[10px] font-medium tracking-[0.14em] text-white">
+        Envío gratis en pedidos desde $800 MXN
+        <span className="mx-2 opacity-70">•</span>
         <span className="hidden sm:inline">
-          Kaly Cosmetic’s · Cadereyta Jiménez & Los Ramones, N.L. · Código VIP KALY10
+          Código VIP <strong>KALY10</strong> (10% OFF) — Cadereyta Jiménez & Los Ramones, N.L.
         </span>
         <span className="sm:hidden">Código VIP: KALY10</span>
       </div>
 
-      {/* Main Clean White Header */}
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      {/* Main Pure White Architectural Header */}
+      <div className="mx-auto flex h-[74px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-3">
           <button
             type="button"
             onClick={() => setMobileMenuOpen((prev) => !prev)}
-            className="flex h-9 w-9 items-center justify-center text-[#2A2324] lg:hidden"
+            className="flex h-9 w-9 items-center justify-center text-[#141312] lg:hidden"
             aria-label="Abrir menú de navegación"
           >
             {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -76,8 +77,8 @@ export const Navbar: React.FC = () => {
           </Link>
         </div>
 
-        {/* Center Navigation */}
-        <nav className="hidden items-center gap-8 lg:flex" aria-label="Navegación principal">
+        {/* Center Navigation Links — Crisp Montserrat Uppercase */}
+        <nav className="hidden items-center gap-7 lg:flex" aria-label="Navegación principal">
           {NAV_LINKS.map((link) => {
             const isQueryLink = link.to.includes('?');
             if (isQueryLink) {
@@ -85,7 +86,7 @@ export const Navbar: React.FC = () => {
                 <Link
                   key={link.label}
                   to={link.to}
-                  className="text-[11px] font-medium uppercase tracking-[0.16em] text-[#4E4244] transition-colors duration-200 hover:text-[#A8747C]"
+                  className="font-display text-[10px] font-semibold uppercase tracking-[0.16em] text-[#141312] transition-colors duration-200 hover:text-[#B5817E]"
                 >
                   {link.label}
                 </Link>
@@ -97,10 +98,10 @@ export const Navbar: React.FC = () => {
                 to={link.to}
                 end={link.exact}
                 className={({ isActive }) =>
-                  `text-[11px] font-medium uppercase tracking-[0.16em] transition-colors duration-200 ${
+                  `font-display text-[10px] font-semibold uppercase tracking-[0.16em] transition-colors duration-200 ${
                     isActive
-                      ? 'text-[#A8747C]'
-                      : 'text-[#4E4244] hover:text-[#A8747C]'
+                      ? 'text-[#B5817E]'
+                      : 'text-[#141312] hover:text-[#B5817E]'
                   }`
                 }
               >
@@ -110,30 +111,30 @@ export const Navbar: React.FC = () => {
           })}
         </nav>
 
-        {/* Right Utility Icons */}
-        <div className="flex items-center gap-2 sm:gap-4">
+        {/* Right Thin Outline Icons */}
+        <div className="flex items-center gap-2 sm:gap-3.5">
           <button
             type="button"
             onClick={toggleSearch}
-            className="flex h-9 w-9 items-center justify-center text-[#4E4244] transition-colors hover:text-[#A8747C]"
+            className="flex h-9 w-9 items-center justify-center text-[#141312] transition-colors hover:text-[#B5817E]"
             aria-label="Buscar productos"
           >
             {isSearchOpen ? (
-              <X className="h-[18px] w-[18px]" strokeWidth={1.6} />
+              <X className="h-[18px] w-[18px]" strokeWidth={1.5} />
             ) : (
-              <Search className="h-[18px] w-[18px]" strokeWidth={1.6} />
+              <Search className="h-[18px] w-[18px]" strokeWidth={1.5} />
             )}
           </button>
 
           <button
             type="button"
             onClick={openWishlist}
-            className="relative flex h-9 w-9 items-center justify-center text-[#4E4244] transition-colors hover:text-[#A8747C]"
+            className="relative flex h-9 w-9 items-center justify-center text-[#141312] transition-colors hover:text-[#B5817E]"
             aria-label="Abrir lista de favoritos"
           >
-            <Heart className="h-[18px] w-[18px]" strokeWidth={1.6} />
+            <Heart className="h-[18px] w-[18px]" strokeWidth={1.5} />
             {wishlistCount > 0 && (
-              <span className="absolute -right-0.5 top-0.5 flex h-4 min-w-[16px] items-center justify-center rounded-full bg-[#A8747C] px-1 text-[9px] font-semibold text-white">
+              <span className="absolute -right-0.5 top-0.5 flex h-4 min-w-[16px] items-center justify-center rounded-full bg-[#141312] px-1 text-[9px] font-semibold text-white">
                 {wishlistCount}
               </span>
             )}
@@ -142,10 +143,10 @@ export const Navbar: React.FC = () => {
           <button
             type="button"
             onClick={openCart}
-            className="relative flex h-9 items-center gap-1.5 px-1 text-[#4E4244] transition-colors hover:text-[#A8747C]"
+            className="relative flex h-9 items-center gap-1.5 px-1 text-[#141312] transition-colors hover:text-[#B5817E]"
             aria-label="Abrir bolsa de compras"
           >
-            <ShoppingBag className="h-[18px] w-[18px]" strokeWidth={1.6} />
+            <ShoppingBag className="h-[18px] w-[18px]" strokeWidth={1.5} />
             <span className="text-[11px] font-medium tracking-wider">({cartCount})</span>
           </button>
         </div>
@@ -153,17 +154,17 @@ export const Navbar: React.FC = () => {
 
       {/* Quick Search Bar */}
       {isSearchOpen && (
-        <div className="animate-fade-in border-t border-[#F0E3E6] bg-[#FCF8F9] px-4 py-5">
+        <div className="animate-fade-in border-t border-[#EFE9E7] bg-[#FAF6F4] px-4 py-5">
           <div className="mx-auto max-w-3xl">
             <form onSubmit={handleSearchSubmit} className="flex gap-2">
               <div className="relative flex-1">
-                <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#857578]" />
+                <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#6E6663]" />
                 <input
                   type="text"
                   autoFocus
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Busca e.l.f., Centella, NYX, gloss, base Fit Me, Airspun..."
+                  placeholder="Busca e.l.f., Centella, NYX, Anua, COSRX, Fit Me..."
                   className="editorial-input pl-10"
                 />
               </div>
@@ -173,7 +174,7 @@ export const Navbar: React.FC = () => {
             </form>
 
             {searchResults.length > 0 && (
-              <div className="mt-4 divide-y divide-[#F0E3E6] rounded-md border border-[#F0E3E6] bg-white">
+              <div className="mt-4 divide-y divide-[#EFE9E7] border border-[#EFE9E7] bg-white">
                 {searchResults.map((item) => (
                   <Link
                     key={item.id}
@@ -182,22 +183,22 @@ export const Navbar: React.FC = () => {
                       closeSearch();
                       setSearchQuery('');
                     }}
-                    className="flex items-center justify-between gap-4 p-3 transition-colors hover:bg-[#FCF8F9]"
+                    className="flex items-center justify-between gap-4 p-3 transition-colors hover:bg-[#FAF6F4]"
                   >
                     <div className="flex items-center gap-3">
                       <img
                         src={item.images[0]}
                         alt={item.name}
-                        className="h-12 w-10 rounded-sm border border-[#F0E3E6] bg-white object-contain p-1"
+                        className="h-12 w-10 border border-[#EFE9E7] bg-white object-contain p-1"
                       />
                       <div>
-                        <p className="text-[10px] font-medium uppercase tracking-[0.12em] text-[#A8747C]">
+                        <p className="font-display text-[10px] font-semibold uppercase tracking-[0.12em] text-[#B5817E]">
                           {item.brand}
                         </p>
-                        <p className="text-sm font-medium text-[#2A2324]">{item.name}</p>
+                        <p className="text-sm font-medium text-[#141312]">{item.name}</p>
                       </div>
                     </div>
-                    <span className="text-sm font-semibold text-[#2A2324]">
+                    <span className="text-sm font-semibold text-[#141312]">
                       ${item.price} MXN
                     </span>
                   </Link>
@@ -210,14 +211,14 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="animate-fade-in border-t border-[#F0E3E6] bg-white px-6 py-6 lg:hidden">
+        <div className="animate-fade-in border-t border-[#EFE9E7] bg-white px-6 py-6 lg:hidden">
           <div className="flex flex-col space-y-4">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.label}
                 to={link.to}
                 onClick={() => setMobileMenuOpen(false)}
-                className="border-b border-[#F3E7EA] pb-3 text-xs font-medium uppercase tracking-[0.18em] text-[#2A2324]"
+                className="border-b border-[#F2ECEA] pb-3 font-display text-[11px] font-semibold uppercase tracking-[0.16em] text-[#141312]"
               >
                 {link.label}
               </Link>

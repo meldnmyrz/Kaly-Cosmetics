@@ -6,97 +6,127 @@ import { PROJECT_META } from '../../data/reportData';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="mt-auto w-full border-t border-[#F0E3E6] bg-white">
-      <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-3">
-          {/* Left: Brand & Location */}
+    <footer className="mt-auto w-full border-t border-[#EAE3E0] bg-[#FAF8F7]">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+          {/* Column 1: Brand */}
           <div>
             <Link to="/">
               <KalyLogo size="sm" tone="rose" />
             </Link>
-            <p className="mt-3 text-xs leading-relaxed text-[#7D6E71]">
-              Cadereyta Jiménez & Los Ramones, Nuevo León
+            <p className="mt-3 text-xs leading-relaxed text-[#6E6663]">
+              Piel sana + maquillaje bonito.
               <br />
-              Piel sana + maquillaje bonito
+              Cadereyta Jiménez & Los Ramones, N.L.
             </p>
           </div>
 
-          {/* Center: Clean Quick Links */}
+          {/* Column 2: Tienda */}
           <div>
-            <h4 className="font-sans text-[11px] font-semibold uppercase tracking-[0.16em] text-[#2A2324]">
-              Enlaces Rápidos
+            <h4 className="font-display text-[10px] font-bold uppercase tracking-[0.18em] text-[#141312]">
+              Tienda
             </h4>
-            <ul className="mt-3 space-y-1.5 text-xs text-[#7D6E71]">
+            <ul className="mt-3 space-y-2 text-xs text-[#6E6663]">
               <li>
-                <Link to="/" className="transition-colors hover:text-[#A8747C]">
-                  Inicio & Proyecto Integrador
-                </Link>
-              </li>
-              <li>
-                <Link to="/tienda" className="transition-colors hover:text-[#A8747C]">
+                <Link to="/tienda" className="transition-colors hover:text-[#141312]">
                   Catálogo Completo
                 </Link>
               </li>
               <li>
-                <Link to="/tienda?categoria=Skincare" className="transition-colors hover:text-[#A8747C]">
-                  Skincare & Centella
+                <Link to="/tienda?categoria=Rostro" className="transition-colors hover:text-[#141312]">
+                  Maquillaje
                 </Link>
               </li>
               <li>
-                <Link to="/checkout" className="transition-colors hover:text-[#A8747C]">
+                <Link to="/tienda?categoria=Skincare" className="transition-colors hover:text-[#141312]">
+                  Skincare K-Beauty
+                </Link>
+              </li>
+              <li>
+                <Link to="/tienda?categoria=Labios" className="transition-colors hover:text-[#141312]">
+                  Labios
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3: Proyecto */}
+          <div>
+            <h4 className="font-display text-[10px] font-bold uppercase tracking-[0.18em] text-[#141312]">
+              Proyecto UTC
+            </h4>
+            <ul className="mt-3 space-y-2 text-xs text-[#6E6663]">
+              <li>
+                <a href="/#proyecto-integrador" className="transition-colors hover:text-[#141312]">
+                  Reporte Técnico
+                </a>
+              </li>
+              <li>
+                <a href="/#proyecto-integrador" className="transition-colors hover:text-[#141312]">
+                  Encuesta (n = 108)
+                </a>
+              </li>
+              <li>
+                <a href="/#proyecto-integrador" className="transition-colors hover:text-[#141312]">
+                  Presupuesto (55 pzs)
+                </a>
+              </li>
+              <li>
+                <Link to="/checkout" className="transition-colors hover:text-[#141312]">
                   Checkout
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Right: Socials */}
+          {/* Column 4: Contacto */}
           <div>
-            <h4 className="font-sans text-[11px] font-semibold uppercase tracking-[0.16em] text-[#2A2324]">
-              Síguenos
+            <h4 className="font-display text-[10px] font-bold uppercase tracking-[0.18em] text-[#141312]">
+              Contacto
             </h4>
-            <div className="mt-3 flex items-center gap-2.5">
+            <p className="mt-3 text-xs text-[#6E6663]">
+              Instagram & TikTok: <strong className="text-[#141312]">@kalycosmetics.mx</strong>
+            </p>
+            <div className="mt-3 flex items-center gap-3 text-[#141312]">
               <a
-                href="#comunidad"
-                className="flex h-8 w-8 items-center justify-center rounded-full bg-[#F6E6E9] text-[#8E5D65] transition-colors hover:bg-[#A8747C] hover:text-white"
-                aria-label="Instagram @kalycosmetics.mx"
+                href="/#comunidad"
+                className="transition-colors hover:text-[#B5817E]"
+                aria-label="Instagram"
               >
-                <Instagram className="h-3.5 w-3.5" />
+                <Instagram className="h-4 w-4" strokeWidth={1.5} />
               </a>
               <a
-                href="#comunidad"
-                className="flex h-8 w-8 items-center justify-center rounded-full bg-[#F6E6E9] text-[#8E5D65] transition-colors hover:bg-[#A8747C] hover:text-white"
-                aria-label="TikTok @kalycosmetics.nl"
+                href="/#comunidad"
+                className="transition-colors hover:text-[#B5817E]"
+                aria-label="TikTok"
               >
-                <Sparkles className="h-3.5 w-3.5" />
+                <Sparkles className="h-4 w-4" strokeWidth={1.5} />
               </a>
               <a
                 href="mailto:hola@kalycosmetics.mx"
-                className="flex h-8 w-8 items-center justify-center rounded-full bg-[#F6E6E9] text-[#8E5D65] transition-colors hover:bg-[#A8747C] hover:text-white"
-                aria-label="Correo hola@kalycosmetics.mx"
+                className="transition-colors hover:text-[#B5817E]"
+                aria-label="Correo"
               >
-                <Mail className="h-3.5 w-3.5" />
+                <Mail className="h-4 w-4" strokeWidth={1.5} />
               </a>
             </div>
-            <p className="mt-2.5 text-[11px] text-[#857578]">
-              @kalycosmetics.mx · hola@kalycosmetics.mx
-            </p>
           </div>
         </div>
-        {/* Subtle Team Credits Line */}
-        <div className="mt-8 border-t border-[#F3E7EA] pt-5 text-center">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#A8747C]">
+
+        {/* Clean Minimal Student Credits Strip */}
+        <div className="mt-9 border-t border-[#EAE3E0] pt-5">
+          <p className="font-display text-[9px] font-bold uppercase tracking-[0.18em] text-[#A5726F]">
             Alumnos Participantes · Equipo {PROJECT_META.team}
           </p>
-          <p className="mx-auto mt-1.5 max-w-4xl text-[11px] leading-relaxed text-[#7D6E71]">
+          <p className="mt-1.5 text-[11px] leading-relaxed text-[#6E6663]">
             {PROJECT_META.participants.join(' · ')}
           </p>
         </div>
-      </div>
 
-      {/* Thin Mauve Bottom Strip (matching Nura Beauty screenshot) */}
-      <div className="bg-[#B3838B] px-4 py-2.5 text-center text-[10px] tracking-[0.12em] text-white/95">
-        © 2026 Kaly Cosmetic’s · Universidad Tecnológica Cadereyta · Equipo 73TSUM4N · Todos los derechos reservados
+        <div className="mt-5 flex flex-col items-center justify-between gap-2 border-t border-[#EAE3E0] pt-5 text-[11px] text-[#8C837F] sm:flex-row">
+          <p>© 2026 Kaly Cosmetic’s · {PROJECT_META.institution}</p>
+          <p>Todos los derechos reservados</p>
+        </div>
       </div>
     </footer>
   );

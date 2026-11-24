@@ -5,55 +5,56 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-    color: #2A2324;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: #141312;
     background-color: #ffffff;
   }
 
   h1,
   h2,
   h3,
+  h4,
   .font-editorial {
-    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-family: 'Montserrat', system-ui, sans-serif;
+    letter-spacing: -0.01em;
   }
 }
 
 @layer components {
   .btn-editorial-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-[#A8747C] px-7 py-3 text-[11px] font-medium uppercase tracking-[0.16em] text-white transition-all duration-200 hover:bg-[#8E5D65] active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-45;
+    @apply inline-flex items-center justify-center gap-2 rounded-none bg-[#141312] px-7 py-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-white transition-all duration-200 hover:bg-[#2F2B29] active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-45;
   }
 
   .btn-editorial-outline {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-[#A8747C] bg-transparent px-7 py-3 text-[11px] font-medium uppercase tracking-[0.16em] text-[#7D4F57] transition-all duration-200 hover:bg-[#A8747C] hover:text-white active:scale-[0.99];
+    @apply inline-flex items-center justify-center gap-2 rounded-none border border-[#141312] bg-transparent px-7 py-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#141312] transition-all duration-200 hover:bg-[#141312] hover:text-white active:scale-[0.99];
   }
 
   .btn-editorial-ghost {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-[#4E4244] transition-colors duration-200 hover:text-[#A8747C];
+    @apply inline-flex items-center justify-center gap-2 rounded-none px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#141312] transition-colors duration-200 hover:text-[#B5817E];
   }
 
   .editorial-input {
-    @apply w-full rounded-md border border-[#EADCE0] bg-white px-4 py-3 text-sm text-[#2A2324] placeholder-[#A39295] transition-colors focus:border-[#A8747C] focus:outline-none;
+    @apply w-full rounded-none border border-[#E5DDD9] bg-white px-4 py-3 text-sm text-[#141312] placeholder-[#9B918D] transition-colors focus:border-[#141312] focus:outline-none;
   }
 
   .editorial-badge {
-    @apply inline-block rounded-full bg-[#A8747C] px-3 py-1 text-[9px] font-semibold uppercase tracking-[0.16em] text-white;
+    @apply inline-block rounded-none bg-[#141312] px-2.5 py-1 text-[9px] font-semibold uppercase tracking-[0.16em] text-white;
   }
 }
 
-/* Custom subtle scrollbars */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #FAF5F6;
+  background: #FAF6F4;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #DFC7CB;
+  background: #D8C7C3;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #A8747C;
+  background: #141312;
 }

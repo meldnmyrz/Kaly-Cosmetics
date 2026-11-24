@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  ChevronLeft,
-  ChevronRight,
-  ArrowRight,
+  ShieldCheck,
+  Sparkles,
+  Heart,
+  Truck,
   FileText,
   ClipboardList,
   BarChart3,
   Calculator,
-  Sparkles,
-  CheckCircle2,
   type LucideIcon,
 } from 'lucide-react';
 import { PRODUCTS } from '../data/products';
@@ -34,355 +33,379 @@ const REPORT_TABS: Array<{
   { id: 'finanzas', label: 'Presupuesto & Costos (55 pzs)', shortLabel: 'Costos', icon: Calculator },
 ];
 
-const HERO_SLIDES = [
+const VALUE_PILLARS = [
   {
-    eyebrow: 'KALY COSMETIC’S · CADEREYTA & LOS RAMONES, N.L.',
-    title: 'La Belleza Comienza Contigo',
-    subtitle:
-      'Maquillaje original importado y skincare K-Beauty con Centella Asiática, diseñado para revelar tu brillo natural a precios accesibles.',
-    ctaLabel: 'Explorar Colección',
-    ctaTo: '/tienda',
-    secondaryLabel: 'Ver Datos del Proyecto',
-    secondaryTo: '#proyecto-integrador',
-    image: '/images/hero-glow.jpg',
+    icon: Sparkles,
+    title: 'Ingredientes Limpios',
+    desc: 'Fórmulas gentiles y seguras',
   },
   {
-    eyebrow: 'BELLEZA INTEGRAL · SKINCARE + MAQUILLAJE',
-    title: 'Piel Sana, Maquillaje Bonito',
-    subtitle:
-      'Desde hidratantes y ampollas calmantes hasta bases y glosses virales en TikTok entre $191 y $499 MXN.',
-    ctaLabel: 'Descubrir Skincare',
-    ctaTo: '/tienda?categoria=Skincare',
-    secondaryLabel: 'Ver Encuesta & Costos',
-    secondaryTo: '#proyecto-integrador',
-    image: '/images/hero-glow.jpg',
+    icon: ShieldCheck,
+    title: '100% Originales',
+    desc: 'Marcas importadas verificadas',
+  },
+  {
+    icon: Heart,
+    title: 'Tendencia Viral',
+    desc: 'Favoritos de TikTok e Instagram',
+  },
+  {
+    icon: Truck,
+    title: 'Envíos Seguros',
+    desc: 'Cadereyta, Los Ramones y MX',
   },
 ];
 
 const POPULAR_CATEGORIES = [
   {
-    title: 'Maquillaje',
-    subtitle: 'Bases, correctores y rubores',
-    image: '/images/catalog/cat-12.jpg',
+    title: 'MAQUILLAJE',
+    image: '/images/cat-maquillaje.jpg',
     to: '/tienda?categoria=Rostro',
   },
   {
-    title: 'Skincare K-Beauty',
-    subtitle: 'Centella, Anua y COSRX',
-    image: '/images/catalog/cat-30.jpg',
+    title: 'SKINCARE',
+    image: '/images/cat-skincare.jpg',
     to: '/tienda?categoria=Skincare',
   },
   {
-    title: 'Labios',
-    subtitle: 'e.l.f. Gloss, NYX Fat Oil',
-    image: '/images/catalog/cat-21.jpg',
+    title: 'LABIOS',
+    image: '/images/cat-labios.jpg',
     to: '/tienda?categoria=Labios',
   },
   {
-    title: 'Ojos & Cejas',
-    subtitle: 'Sky High & Brow Glue',
-    image: '/images/catalog/cat-01.jpg',
-    to: '/tienda?categoria=Ojos',
+    title: 'SETS & BROCHAS',
+    image: '/images/cat-ojos.jpg',
+    to: '/tienda?categoria=Herramientas',
   },
 ];
 
 export const HomePage: React.FC = () => {
-  const [slideIdx, setSlideIdx] = useState(0);
   const [activeTab, setActiveTab] = useState<HomeReportSection>('resumen');
-  const currentSlide = HERO_SLIDES[slideIdx];
   const bestsellers = PRODUCTS.filter((p) => p.isBestseller).slice(0, 4);
-
-  const prevSlide = () =>
-    setSlideIdx((prev) => (prev === 0 ? HERO_SLIDES.length - 1 : prev - 1));
-  const nextSlide = () =>
-    setSlideIdx((prev) => (prev === HERO_SLIDES.length - 1 ? 0 : prev + 1));
 
   return (
     <div className="animate-fade-in bg-white">
-      {/* 1. Serene Editorial Hero */}
-      <section className="relative min-h-[500px] w-full overflow-hidden bg-[#C7A1A7] sm:min-h-[560px]">
-        <img
-          src={currentSlide.image}
-          alt="Campaña editorial Kaly Cosmetic's"
-          className="absolute inset-0 h-full w-full object-cover object-[72%_center] transition-all duration-700"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#5D3F44]/85 via-[#8B6269]/45 to-transparent" />
+      {/* 1. Lúmé-style Split Editorial Hero */}
+      <section className="w-full overflow-hidden bg-[#F7E3E0]">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-12">
+          {/* Left Portrait */}
+          <div className="relative min-h-[340px] sm:min-h-[430px] lg:col-span-6 lg:min-h-[500px]">
+            <img
+              src="/images/hero-glow.jpg"
+              alt="Kaly Cosmetic's — Belleza Luminosa"
+              className="h-full w-full object-cover object-[76%_center]"
+            />
+          </div>
 
-        <div className="relative mx-auto flex min-h-[500px] max-w-6xl items-center px-6 py-16 sm:min-h-[560px] sm:px-10">
-          <div className="max-w-lg">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[#F7E3E6]">
-              {currentSlide.eyebrow}
-            </p>
-            <h1 className="mt-3 font-serif text-5xl font-normal leading-[1.06] text-white sm:text-6xl">
-              {currentSlide.title}
-            </h1>
-            <p className="mt-4 text-sm font-light leading-relaxed text-[#FDF6F7] sm:text-[15px]">
-              {currentSlide.subtitle}
-            </p>
-            <div className="mt-7 flex flex-wrap items-center gap-3">
-              <Link
-                to={currentSlide.ctaTo}
-                className="inline-flex items-center gap-2 rounded-full bg-[#FAF4F5] px-7 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#4E353A] transition-all hover:bg-white"
-              >
-                {currentSlide.ctaLabel}
-                <ChevronRight className="h-3.5 w-3.5" />
-              </Link>
-              <a
-                href={currentSlide.secondaryTo}
-                className="inline-flex items-center gap-2 rounded-full border border-white/75 bg-white/10 px-6 py-3 text-[11px] font-medium uppercase tracking-[0.16em] text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-[#4E353A]"
-              >
-                {currentSlide.secondaryLabel}
-              </a>
+          {/* Right Soft Blush Typography Block */}
+          <div className="relative flex flex-col justify-center overflow-hidden bg-[#F7E3E0] px-8 py-14 sm:px-14 lg:col-span-6 lg:px-16">
+            {/* Subtle cosmetic texture accent on far right */}
+            <img
+              src="/images/cat-labios.jpg"
+              alt=""
+              aria-hidden="true"
+              className="pointer-events-none absolute -right-24 top-1/2 hidden h-72 w-72 -translate-y-1/2 rounded-full object-cover opacity-25 mix-blend-multiply xl:block"
+            />
+
+            <div className="relative z-10 max-w-md">
+              <p className="font-display text-[10px] font-semibold uppercase tracking-[0.22em] text-[#8E6562]">
+                Nueva Colección · Kaly Cosmetic’s
+              </p>
+
+              <h1 className="mt-3 font-display text-4xl font-semibold uppercase leading-[1.06] tracking-[-0.01em] text-[#141312] sm:text-5xl lg:text-[52px]">
+                Brilla.
+                <br />
+                Define.
+                <br />
+                Tú.
+              </h1>
+
+              <p className="mt-5 text-[13px] leading-relaxed text-[#574D4A] sm:text-sm">
+                Belleza sin esfuerzo con maquillaje original importado y skincare K-Beauty
+                seleccionado para piel sana y luminosa todos los días.
+              </p>
+
+              <div className="mt-7 flex flex-wrap items-center gap-3">
+                <Link to="/tienda" className="btn-editorial-primary px-8 py-3.5">
+                  Comprar Ahora
+                </Link>
+                <a
+                  href="#proyecto-integrador"
+                  className="btn-editorial-outline px-6 py-3.5"
+                >
+                  Proyecto UTC
+                </a>
+              </div>
             </div>
           </div>
         </div>
-
-        <button
-          type="button"
-          onClick={prevSlide}
-          aria-label="Slide anterior"
-          className="absolute left-3 top-1/2 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm transition-colors hover:bg-white/35 sm:flex"
-        >
-          <ChevronLeft className="h-4 w-4" />
-        </button>
-        <button
-          type="button"
-          onClick={nextSlide}
-          aria-label="Siguiente slide"
-          className="absolute right-3 top-1/2 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/20 text-white backdrop-blur-sm transition-colors hover:bg-white/35 sm:flex"
-        >
-          <ChevronRight className="h-4 w-4" />
-        </button>
       </section>
 
-      {/* 2. Clean White Bestsellers Section (matching "Our Bestsellers" reference) */}
-      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#A8747C]">
-            Curaduría Kaly Cosmetic’s
-          </p>
-          <h2 className="mt-1.5 font-serif text-4xl font-normal text-[#2A2324] sm:text-[42px]">
-            Nuestros Más Vendidos
+      {/* 2. Minimalist 4-Column Thin-Icon Value Bar */}
+      <section className="border-b border-[#EFE9E7] bg-[#FAF4F2] px-4 py-6 sm:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 lg:grid-cols-4">
+          {VALUE_PILLARS.map((pillar) => {
+            const Icon = pillar.icon;
+            return (
+              <div key={pillar.title} className="flex items-center gap-3">
+                <Icon className="h-5 w-5 shrink-0 text-[#6E6663]" strokeWidth={1.35} />
+                <div>
+                  <h2 className="font-display text-[10px] font-bold uppercase tracking-[0.14em] text-[#141312]">
+                    {pillar.title}
+                  </h2>
+                  <p className="mt-0.5 text-[11px] text-[#7D7470]">{pillar.desc}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* 3. Single Horizontal Row: MÁS VENDIDOS (exact Lúmé Beauty layout) */}
+      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+        <div className="flex items-baseline justify-between gap-4">
+          <h2 className="font-display text-lg font-bold uppercase tracking-[0.12em] text-[#141312] sm:text-xl">
+            Más Vendidos
           </h2>
+          <Link
+            to="/tienda"
+            className="font-display text-[10px] font-semibold uppercase tracking-[0.16em] text-[#141312] underline underline-offset-4 transition-colors hover:text-[#B5817E]"
+          >
+            Ver Todo ({PRODUCTS.length})
+          </Link>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-7 grid grid-cols-1 gap-x-5 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
           {bestsellers.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
-
-        <div className="mt-10 text-center">
-          <Link to="/tienda" className="btn-editorial-outline">
-            Ver Catálogo Completo ({PRODUCTS.length} productos)
-            <ArrowRight className="h-3.5 w-3.5" />
-          </Link>
-        </div>
       </section>
 
-      {/* 3. Dusty-Mauve Editorial Feature Band — Portada Real Proyecto Integrador UTC */}
-      <section className="bg-[#DFC2C7] px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-6">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#6E444B]">
-              {PROJECT_META.institution} · {PROJECT_META.date}
-            </p>
-            <h2 className="mt-2 font-serif text-4xl font-medium leading-tight text-[#2A2324] sm:text-[44px]">
-              Proyecto Integrador: {PROJECT_META.title}
-            </h2>
-            <p className="mt-4 text-sm leading-relaxed text-[#4A3A3D]">
-              Investigación de mercados aplicada a jóvenes de <strong>18 a 24 años</strong> en{' '}
-              <strong>{PROJECT_META.region}</strong> para evaluar la demanda real de maquillaje
-              importado y skincare K-Beauty, respaldada por una encuesta digital de{' '}
-              <strong>108 participantes</strong> y presupuesto oficial de{' '}
-              <strong>55 piezas</strong>.
-            </p>
-
-            <div className="mt-5 space-y-1.5 text-xs text-[#4A3A3D]">
-              <p>
-                <strong>Presentan (Equipo):</strong>{' '}
-                <span className="font-mono">{PROJECT_META.team}</span> ·{' '}
-                <strong>Líder:</strong> {PROJECT_META.leader}
+      {/* 4. Dual Side-by-Side Editorial Promo Banners (exact Lúmé "LIPS THAT SPEAK" / "SKIN THAT GLOWS") */}
+      <section className="mx-auto max-w-7xl px-4 pb-14 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
+          {/* Left Banner: Labios */}
+          <div className="group relative min-h-[280px] overflow-hidden bg-[#F3E1DF]">
+            <img
+              src="/images/banner-lips.jpg"
+              alt="Labios que Hablan"
+              className="absolute inset-0 h-full w-full object-cover object-right transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#F3E1DF] via-[#F3E1DF]/82 to-transparent" />
+            <div className="relative flex h-full max-w-[58%] flex-col justify-center p-8 sm:p-10">
+              <h3 className="font-display text-2xl font-semibold uppercase leading-[1.12] text-[#141312] sm:text-[28px]">
+                Labios que
+                <br />
+                Hablan
+              </h3>
+              <p className="mt-3 text-xs leading-relaxed text-[#574D4A]">
+                Alta pigmentación, aceites nutritivos y brillo espejo sin sensación pegajosa.
               </p>
-              <p>
-                <strong>Asesores:</strong> {PROJECT_META.advisors.join(' · ')}
-              </p>
-            </div>
-
-            <div className="mt-7 flex flex-wrap gap-3">
-              <a
-                href="#proyecto-integrador"
-                onClick={() => setActiveTab('encuesta')}
-                className="btn-editorial-primary bg-[#8F5C64] hover:bg-[#774951]"
-              >
-                Ver Encuesta (n = 108)
-              </a>
-              <a
-                href="#proyecto-integrador"
-                onClick={() => setActiveTab('finanzas')}
-                className="inline-flex items-center gap-2 rounded-full bg-white/85 px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.16em] text-[#4E353A] transition-colors hover:bg-white"
-              >
-                Ver Presupuesto Real
-              </a>
-            </div>
-          </div>
-
-          {/* Right: 4 Clean White Real-Data Cards */}
-          <div className="grid grid-cols-2 gap-4 lg:col-span-6">
-            <div className="rounded-lg bg-white/95 p-6 shadow-sm">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#A8747C]">
-                Encuesta Real
-              </p>
-              <p className="mt-2 font-serif text-4xl text-[#2A2324]">108</p>
-              <p className="mt-1 text-xs text-[#7D6E71]">
-                55 en Cadereyta Jiménez y 34 en Los Ramones
-              </p>
-            </div>
-            <div className="rounded-lg bg-white/95 p-6 shadow-sm">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#A8747C]">
-                Rango Validado
-              </p>
-              <p className="mt-2 font-serif text-4xl text-[#2A2324]">72%</p>
-              <p className="mt-1 text-xs text-[#7D6E71]">
-                Paga $100–$350 maquillaje y $150–$400 skincare
-              </p>
-            </div>
-            <div className="rounded-lg bg-white/95 p-6 shadow-sm">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#A8747C]">
-                Recompra Mensual
-              </p>
-              <p className="mt-2 font-serif text-4xl text-[#2A2324]">48%</p>
-              <p className="mt-1 text-xs text-[#7D6E71]">
-                Descubrimiento líder en Instagram Reels y TikTok
-              </p>
-            </div>
-            <div className="rounded-lg bg-white/95 p-6 shadow-sm">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#A8747C]">
-                Lote & Margen Real
-              </p>
-              <p className="mt-2 font-serif text-4xl text-[#2A2324]">55 pzs</p>
-              <p className="mt-1 text-xs text-[#7D6E71]">
-                Mercancía $10,295.72 · Fijos $4,262 · Margen 20%
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. Full Real Project Report Integrated Cleanly on White */}
-      <section id="proyecto-integrador" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#A8747C]">
-            Documentación Oficial · Datos Reales del Proyecto
-          </p>
-          <h2 className="mt-1.5 font-serif text-4xl font-normal text-[#2A2324]">
-            Reporte Técnico, Encuesta y Presupuesto
-          </h2>
-          <p className="mx-auto mt-2 max-w-2xl text-sm text-[#7D6E71]">
-            Explora cada capítulo de la investigación de Kaly Cosmetic’s, las gráficas reales de las
-            108 encuestas y el costeo exacto del lote de 55 piezas.
-          </p>
-        </div>
-
-        {/* Soft Pill Navigation Tabs */}
-        <div
-          className="mt-8 flex flex-wrap items-center justify-center gap-2.5"
-          role="tablist"
-          aria-label="Secciones del Reporte Técnico de Kaly Cosmetic's"
-        >
-          {REPORT_TABS.map((tab) => {
-            const Icon = tab.icon;
-            const active = activeTab === tab.id;
-            return (
-              <button
-                key={tab.id}
-                type="button"
-                role="tab"
-                aria-selected={active}
-                onClick={() => setActiveTab(tab.id)}
-                className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] transition-all duration-200 ${
-                  active
-                    ? 'bg-[#A8747C] text-white shadow-sm'
-                    : 'border border-[#EADCE0] bg-[#FCF8F9] text-[#5F5053] hover:border-[#A8747C] hover:text-[#2A2324]'
-                }`}
-              >
-                <Icon className="h-3.5 w-3.5" />
-                <span className="hidden sm:inline">{tab.label}</span>
-                <span className="sm:hidden">{tab.shortLabel}</span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Active Real-Data Tab Panel */}
-        <div className="mt-8">
-          {activeTab === 'resumen' && <ExecutiveSummaryTab />}
-          {activeTab === 'metodologia' && <MethodologyTab />}
-          {activeTab === 'encuesta' && <SurveyDataTab />}
-          {activeTab === 'finanzas' && <FinanceAnnexTab />}
-        </div>
-      </section>
-
-      {/* 5. Soft Blush Editorial Story + Collections Band (matching pale-pink Nura Beauty band) */}
-      <section id="comunidad" className="bg-[#F7E5E8] px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12">
-            <div className="lg:col-span-5">
-              <div className="inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#8E5D65]">
-                <Sparkles className="h-3.5 w-3.5" />
-                Diferenciador Comprobado
+              <div className="mt-5">
+                <Link to="/tienda?categoria=Labios" className="btn-editorial-primary px-6 py-2.5">
+                  Comprar Labios
+                </Link>
               </div>
-              <h2 className="mt-2 font-serif text-3xl font-medium text-[#2A2324] sm:text-4xl">
-                ¿Lista para una Rutina Completa de Piel Sana + Maquillaje?
+            </div>
+          </div>
+
+          {/* Right Banner: Skincare */}
+          <div className="group relative min-h-[280px] overflow-hidden bg-[#F4EFEC]">
+            <img
+              src="/images/banner-skincare.jpg"
+              alt="Piel que Brilla"
+              className="absolute inset-0 h-full w-full object-cover object-right transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#F4EFEC] via-[#F4EFEC]/86 to-transparent" />
+            <div className="relative flex h-full max-w-[58%] flex-col justify-center p-8 sm:p-10">
+              <h3 className="font-display text-2xl font-semibold uppercase leading-[1.12] text-[#141312] sm:text-[28px]">
+                Piel que
+                <br />
+                Brilla
+              </h3>
+              <p className="mt-3 text-xs leading-relaxed text-[#574D4A]">
+                Una piel luminosa empieza con el cuidado adecuado: SKIN1004 Centella, Anua y COSRX.
+              </p>
+              <div className="mt-5">
+                <Link to="/tienda?categoria=Skincare" className="btn-editorial-primary px-6 py-2.5">
+                  Comprar Skincare
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. CATEGORÍAS POPULARES (exact Lúmé 4-tile strip) */}
+      <section className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+        <h2 className="font-display text-lg font-bold uppercase tracking-[0.12em] text-[#141312] sm:text-xl">
+          Categorías Populares
+        </h2>
+
+        <div className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
+          {POPULAR_CATEGORIES.map((cat) => (
+            <Link
+              key={cat.title}
+              to={cat.to}
+              className="group relative aspect-[16/11] overflow-hidden bg-[#F4EFEC]"
+            >
+              <img
+                src={cat.image}
+                alt={cat.title}
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-[#141312]/28 transition-colors duration-300 group-hover:bg-[#141312]/42" />
+              <div className="absolute inset-0 flex items-center justify-center p-3 text-center">
+                <span className="font-display text-xs font-bold uppercase tracking-[0.22em] text-white sm:text-sm">
+                  {cat.title}
+                </span>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* 6. PROYECTO INTEGRADOR UTC — Full Real Data Executive Report (Architectural Luxury Style) */}
+      <section
+        id="proyecto-integrador"
+        className="border-y border-[#EAE3E0] bg-[#FAF6F4] px-4 py-16 sm:px-6 lg:px-8"
+      >
+        <div className="mx-auto max-w-7xl">
+          {/* Masthead + 4 Real KPI Boxes */}
+          <div className="grid grid-cols-1 items-end gap-8 lg:grid-cols-12">
+            <div className="lg:col-span-7">
+              <span className="editorial-badge">
+                {PROJECT_META.institution} · {PROJECT_META.date}
+              </span>
+              <h2 className="mt-4 font-display text-2xl font-bold uppercase leading-tight tracking-[0.04em] text-[#141312] sm:text-3xl">
+                Reporte Técnico de Proyecto Integrador: {PROJECT_META.title}
               </h2>
-              <p className="mt-3 text-sm leading-relaxed text-[#5F5053]">
-                El mercado de skincare creció <strong>45% en México</strong> en los últimos 3 años
-                (Statista, 2023). En Kaly combinamos maquillaje viral con cuidado facial calmante
-                para piel mixta, grasa y sensible.
+              <p className="mt-3 text-sm leading-relaxed text-[#574D4A]">
+                Estudio real de viabilidad comercial y preferencias de consumo (18 a 24 años) en{' '}
+                <strong>{PROJECT_META.region}</strong>. Equipo{' '}
+                <strong className="font-mono text-xs text-[#141312]">{PROJECT_META.team}</strong> ·
+                Líder: <strong>{PROJECT_META.leader}</strong>.
               </p>
-              <ul className="mt-4 space-y-1.5 text-xs text-[#4E4244]">
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-[#A8747C]" />
-                  Productos 100% originales importados de EE. UU. y K-Beauty
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-[#A8747C]" />
-                  Asesoría por tipo de piel y entregas locales en Cadereyta y Los Ramones
-                </li>
-              </ul>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Link to="/tienda?categoria=Skincare" className="btn-editorial-primary">
-                  Explorar Skincare
-                </Link>
-                <Link to="/tienda?categoria=Labios" className="btn-editorial-outline bg-white/60">
-                  Explorar Labios
-                </Link>
-              </div>
             </div>
 
-            {/* Clean 4-tile Real Catalog Category Showcase */}
-            <div className="grid grid-cols-2 gap-4 lg:col-span-7">
-              {POPULAR_CATEGORIES.map((cat) => (
-                <Link
-                  key={cat.title}
-                  to={cat.to}
-                  className="group flex flex-col overflow-hidden rounded-lg border border-[#EFE0E3] bg-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md"
-                >
-                  <div className="flex aspect-[4/3] w-full items-center justify-center bg-white p-4">
-                    <img
-                      src={cat.image}
-                      alt={cat.title}
-                      loading="lazy"
-                      className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="border-t border-[#F4EAEC] bg-[#FCF8F9] px-4 py-3 text-center">
-                    <p className="font-serif text-lg font-medium text-[#2A2324]">{cat.title}</p>
-                    <p className="text-[11px] text-[#7D6E71]">{cat.subtitle}</p>
-                  </div>
-                </Link>
-              ))}
+            <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:col-span-5 lg:grid-cols-2">
+              <div className="border border-[#EAE3E0] bg-white p-4">
+                <p className="font-display text-[9px] font-bold uppercase tracking-[0.16em] text-[#B5817E]">
+                  Encuesta Real
+                </p>
+                <p className="mt-1 font-display text-2xl font-bold text-[#141312]">108</p>
+                <p className="text-[11px] text-[#6E6663]">55 Cadereyta · 34 Ramones</p>
+              </div>
+              <div className="border border-[#EAE3E0] bg-white p-4">
+                <p className="font-display text-[9px] font-bold uppercase tracking-[0.16em] text-[#B5817E]">
+                  Rango Aceptado
+                </p>
+                <p className="mt-1 font-display text-2xl font-bold text-[#141312]">72%</p>
+                <p className="text-[11px] text-[#6E6663]">$100–$400 MXN</p>
+              </div>
+              <div className="border border-[#EAE3E0] bg-[#F7E3E0]/60 p-4">
+                <p className="font-display text-[9px] font-bold uppercase tracking-[0.16em] text-[#8E6562]">
+                  Compra Mensual
+                </p>
+                <p className="mt-1 font-display text-2xl font-bold text-[#141312]">48%</p>
+                <p className="text-[11px] text-[#6E6663]">IG Reels & TikTok</p>
+              </div>
+              <div className="border border-[#141312] bg-[#141312] p-4 text-white">
+                <p className="font-display text-[9px] font-bold uppercase tracking-[0.16em] text-[#EBD7D4]">
+                  Lote · Margen
+                </p>
+                <p className="mt-1 font-display text-2xl font-bold">55 pzs · 20%</p>
+                <p className="text-[11px] text-[#CFC7C4]">Mercancía $10,295.72</p>
+              </div>
             </div>
+          </div>
+
+          {/* 4 Sharp Architectural Tabs */}
+          <div
+            className="mt-10 grid grid-cols-2 gap-2 border-t border-[#EAE3E0] pt-6 lg:grid-cols-4"
+            role="tablist"
+            aria-label="Secciones del Reporte Técnico de Kaly Cosmetic's"
+          >
+            {REPORT_TABS.map((tab) => {
+              const Icon = tab.icon;
+              const active = activeTab === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={active}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`flex items-center justify-center gap-2 border px-4 py-3.5 transition-all duration-200 ${
+                    active
+                      ? 'border-[#141312] bg-[#141312] text-white'
+                      : 'border-[#E5DDD9] bg-white text-[#141312] hover:border-[#141312]'
+                  }`}
+                >
+                  <Icon
+                    className={`h-3.5 w-3.5 shrink-0 ${
+                      active ? 'text-[#EBD7D4]' : 'text-[#B5817E]'
+                    }`}
+                  />
+                  <span className="hidden font-display text-[10px] font-semibold uppercase tracking-[0.14em] sm:inline">
+                    {tab.label}
+                  </span>
+                  <span className="font-display text-[10px] font-semibold uppercase tracking-[0.14em] sm:hidden">
+                    {tab.shortLabel}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Active Real-Data Report Container */}
+          <div className="mt-6 border border-[#EAE3E0] bg-white p-5 sm:p-8">
+            {activeTab === 'resumen' && <ExecutiveSummaryTab />}
+            {activeTab === 'metodologia' && <MethodologyTab />}
+            {activeTab === 'encuesta' && <SurveyDataTab />}
+            {activeTab === 'finanzas' && <FinanceAnnexTab />}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. Community Strip (@KALYCOSMETICS.MX — exact Lúmé social strip) */}
+      <section id="comunidad" className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <p className="font-display text-sm font-bold uppercase tracking-[0.12em] text-[#141312]">
+              @KALYCOSMETICS.MX
+            </p>
+            <p className="mt-2 text-xs leading-relaxed text-[#6E6663]">
+              Únete a nuestra comunidad en Instagram Reels y TikTok: rutinas de skincare con
+              Centella, reseñas reales y tutoriales de maquillaje diario.
+            </p>
+            <Link to="/tienda" className="btn-editorial-primary mt-5 px-6 py-2.5">
+              Explorar Tienda
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:col-span-8">
+            {[
+              '/images/catalog/cat-30.jpg',
+              '/images/catalog/cat-21.jpg',
+              '/images/catalog/cat-18.jpg',
+              '/images/catalog/cat-13.jpg',
+            ].map((img, i) => (
+              <Link
+                key={i}
+                to="/tienda"
+                className="group flex aspect-square items-center justify-center overflow-hidden border border-[#F0EAE8] bg-white p-4 transition-colors hover:border-[#C69592]"
+              >
+                <img
+                  src={img}
+                  alt={`Catálogo Kaly ${i + 1}`}
+                  loading="lazy"
+                  className="h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
+                />
+              </Link>
+            ))}
           </div>
         </div>
       </section>

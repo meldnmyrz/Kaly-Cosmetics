@@ -15,10 +15,13 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const isWishlisted = useShopStore((s) => s.wishlist.includes(product.id));
 
   return (
-    <article className="group flex h-full flex-col bg-white text-center transition-all duration-300">
-      {/* Clean Soft Studio Image Box — uncropped real catalog photography */}
-      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-lg border border-[#F3E7EA] bg-white">
-        <Link to={`/producto/${product.id}`} className="flex h-full w-full items-center justify-center p-4">
+    <article className="group flex h-full flex-col bg-white text-left transition-all duration-300">
+      {/* Lúmé-style Sharp Clean Studio Product Container */}
+      <div className="relative aspect-[4/5] w-full overflow-hidden border border-[#F0EAE8] bg-[#FFFFFF]">
+        <Link
+          to={`/producto/${product.id}`}
+          className="flex h-full w-full items-center justify-center p-5"
+        >
           <img
             src={product.images[0]}
             alt={product.name}
@@ -27,12 +30,14 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           />
         </Link>
 
+        {/* Top-left sharp black badge */}
         {product.badge && (
-          <span className="editorial-badge absolute left-3 top-3">
+          <span className="editorial-badge absolute left-2.5 top-2.5">
             {product.badge}
           </span>
         )}
 
+        {/* Top-right minimal outline heart */}
         <button
           type="button"
           onClick={() => toggleWishlist(product.id, product.name)}
@@ -41,64 +46,67 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               ? `Quitar ${product.name} de favoritos`
               : `Guardar ${product.name} en favoritos`
           }
-          className={`absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full transition-all duration-200 ${
+          className={`absolute right-2.5 top-2.5 flex h-8 w-8 items-center justify-center transition-colors duration-200 ${
             isWishlisted
-              ? 'bg-white text-[#A8747C] shadow-sm'
-              : 'bg-white/80 text-[#594A4D] hover:bg-white hover:text-[#A8747C]'
+              ? 'text-[#C69592]'
+              : 'text-[#6E6663] hover:text-[#141312]'
           }`}
         >
           <Heart
             className="h-4 w-4"
-            strokeWidth={1.6}
-            fill={isWishlisted ? '#A8747C' : 'none'}
+            strokeWidth={1.5}
+            fill={isWishlisted ? '#C69592' : 'none'}
           />
         </button>
       </div>
 
-      {/* Clean Centered Product Info (matching minimal Nura Beauty reference) */}
-      <div className="flex flex-1 flex-col items-center px-2 pt-4">
-        <span className="text-[10px] font-medium uppercase tracking-[0.16em] text-[#A8747C]">
-          {product.brand}
-        </span>
-
+      {/* Left-aligned Architectural Product Info (exact Lúmé Beauty hierarchy) */}
+      <div className="flex flex-1 flex-col pt-3.5">
         <Link
           to={`/producto/${product.id}`}
-          className="mt-1 line-clamp-2 text-[14px] font-medium leading-snug text-[#2A2324] transition-colors hover:text-[#A8747C]"
+          className="line-clamp-1 text-[13px] font-semibold text-[#141312] transition-colors hover:text-[#B5817E]"
         >
           {product.name}
         </Link>
 
-        {/* Subtle Swatch Dots */}
-        <div className="mt-2.5 flex items-center justify-center gap-1.5">
-          {product.swatches.slice(0, 4).map((swatch) => {
-            const selected = swatch.id === activeSwatch.id;
-            return (
-              <button
-                key={swatch.id}
-                type="button"
-                onClick={() => setActiveSwatch(swatch)}
-                title={swatch.name}
-                aria-label={`Tono ${swatch.name}`}
-                className={`h-3.5 w-3.5 rounded-full transition-all ${
-                  selected
-                    ? 'ring-1 ring-[#A8747C] ring-offset-2'
-                    : 'border border-[#DECED1] hover:scale-110'
-                }`}
-                style={{ backgroundColor: swatch.hex }}
-              />
-            );
-          })}
-        </div>
-
-        <p className="mt-2.5 text-[14px] font-semibold text-[#2A2324]">
-          ${product.price.toLocaleString('es-MX')}{' '}
-          <span className="text-[10px] font-normal text-[#857578]">MXN</span>
+        <p className="mt-0.5 text-[11px] text-[#7D7470]">
+          {product.brand} · {product.category}
         </p>
 
+        {/* Price + subtle swatch dots row */}
+        <div className="mt-2 flex items-center justify-between gap-2">
+          <span className="text-[13px] font-bold text-[#141312]">
+            ${product.price.toLocaleString('es-MX')}{' '}
+            <span className="text-[10px] font-normal text-[#7D7470]">MXN</span>
+          </span>
+
+          <div className="flex items-center gap-1">
+            {product.swatches.slice(0, 4).map((swatch) => {
+              const selected = swatch.id === activeSwatch.id;
+              return (
+                <button
+                  key={swatch.id}
+                  type="button"
+                  onClick={() => setActiveSwatch(swatch)}
+                  title={swatch.name}
+                  aria-label={`Tono ${swatch.name}`}
+                  className={`h-3 w-3 rounded-full transition-all ${
+                    selected
+                      ? 'ring-1 ring-[#141312] ring-offset-1'
+                      : 'border border-[#D8CECA] hover:scale-110'
+                  }`}
+                  style={{ backgroundColor: swatch.hex }}
+                />
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Full-width Sharp Matte Black CTA */}
         <button
           type="button"
           onClick={() => addToCart(product, activeSwatch, 1)}
-          className="mt-auto w-full rounded-full bg-[#A8747C] py-2.5 text-[10px] font-medium uppercase tracking-[0.16em] text-white transition-colors duration-200 hover:bg-[#8E5D65] mt-4"
+          className="mt-auto w-full rounded-none bg-[#141312] py-2.5 font-display text-[10px] font-semibold uppercase tracking-[0.18em] text-white transition-colors duration-200 hover:bg-[#322E2C] mt-3.5"
         >
           Agregar al carrito
         </button>
