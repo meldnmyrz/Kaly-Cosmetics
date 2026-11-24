@@ -10,10 +10,36 @@ import {
   ArrowRight,
   FileBarChart2,
   Instagram,
+  FileText,
+  ClipboardList,
+  BarChart3,
+  Cpu,
+  Palette,
+  ExternalLink,
+  type LucideIcon,
 } from 'lucide-react';
 import { PRODUCTS } from '../data/products';
 import { PROJECT_META } from '../data/reportData';
+import { ReportTabId } from '../types/report';
 import { ProductCard } from '../components/ui/ProductCard';
+import { ExecutiveSummaryTab } from '../components/report/ExecutiveSummaryTab';
+import { MethodologyTab } from '../components/report/MethodologyTab';
+import { MetricsChartsTab } from '../components/report/MetricsChartsTab';
+import { ArchitectureTab } from '../components/report/ArchitectureTab';
+import { DesignSystemTab } from '../components/report/DesignSystemTab';
+
+const REPORT_TABS: Array<{
+  id: ReportTabId;
+  label: string;
+  shortLabel: string;
+  icon: LucideIcon;
+}> = [
+  { id: 'resumen', label: 'Resumen & Marco Teórico', shortLabel: 'Resumen', icon: FileText },
+  { id: 'metodologia', label: 'Metodología & Bibliografía', shortLabel: 'Metodología', icon: ClipboardList },
+  { id: 'metricas', label: 'Encuesta (n=108) & Finanzas', shortLabel: 'Finanzas', icon: BarChart3 },
+  { id: 'arquitectura', label: 'Arquitectura Web', shortLabel: 'Arquitectura', icon: Cpu },
+  { id: 'diseno', label: 'Brand Book UI/UX', shortLabel: 'UI/UX', icon: Palette },
+];
 
 const HERO_SLIDES = [
   {
@@ -92,6 +118,7 @@ const POPULAR_CATEGORIES = [
 
 export const HomePage: React.FC = () => {
   const [slideIdx, setSlideIdx] = useState(0);
+  const [activeReportTab, setActiveReportTab] = useState<ReportTabId>('resumen');
   const currentSlide = HERO_SLIDES[slideIdx];
   const bestsellers = PRODUCTS.filter((p) => p.isBestseller).slice(0, 4);
 
@@ -194,118 +221,87 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* 2.5 Proyecto Integrador UTC — Portada Ejecutiva al Inicio */}
-      <section className="border-b border-[#E8DFDC] bg-[#FAF7F5] px-4 py-14 sm:px-6 lg:px-8">
+      {/* 2.5 Reporte Completo del Proyecto Integrador UTC integrado en el Inicio */}
+      <section
+        id="reporte-proyecto"
+        className="border-b border-[#E8DFDC] bg-[#FAF7F5] px-4 py-14 sm:px-6 lg:px-8"
+      >
         <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-12">
-            {/* Left: Institutional Cover & Direct Report Access */}
-            <div className="lg:col-span-7">
+          {/* Masthead */}
+          <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+            <div className="max-w-3xl">
               <div className="inline-flex items-center gap-2 bg-[#141312] px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#EBD7D4]">
                 <FileBarChart2 className="h-3.5 w-3.5" />
-                {PROJECT_META.institution} · Proyecto Integrador
+                {PROJECT_META.institution} · {PROJECT_META.documentType}
               </div>
 
-              <h2 className="mt-4 font-serif text-3xl font-medium leading-tight text-[#141312] sm:text-4xl">
-                Reporte Técnico & Plataforma E-Commerce: Kaly Cosmetic’s
+              <h2 className="mt-4 font-serif text-3xl font-medium uppercase leading-tight tracking-[0.03em] text-[#141312] sm:text-4xl lg:text-5xl">
+                Proyecto Integrador: {PROJECT_META.title}
               </h2>
 
               <p className="mt-3 text-sm leading-relaxed text-[#4E4744]">
-                Propuesta de negocio y estudio de mercado en{' '}
-                <strong>{PROJECT_META.region}</strong> orientada a consumidores de{' '}
-                <strong>18 a 24 años</strong>, integrando maquillaje original importado y
-                skincare K-Beauty con Centella Asiática.
+                Equipo <strong className="font-mono text-xs text-[#141312]">{PROJECT_META.team}</strong> ·
+                Líder: <strong>{PROJECT_META.leader}</strong> · Fecha: {PROJECT_META.date} ·
+                Asesores: {PROJECT_META.advisors.join(', ')}.
               </p>
-
-              {/* Institutional Metadata Strip */}
-              <div className="mt-6 grid grid-cols-1 gap-4 border-y border-[#E8DFDC] py-4 text-xs sm:grid-cols-3">
-                <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#B58681]">
-                    Equipo · Fecha
-                  </p>
-                  <p className="mt-1 font-mono font-semibold text-[#141312]">
-                    {PROJECT_META.team} · 3/12/26
-                  </p>
-                </div>
-                <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#B58681]">
-                    Líder del Proyecto
-                  </p>
-                  <p className="mt-1 font-medium text-[#141312]">{PROJECT_META.leader}</p>
-                </div>
-                <div>
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#B58681]">
-                    Asesores Académicos
-                  </p>
-                  <p className="mt-1 leading-snug text-[#4E4744]">
-                    Lic. Carlos C. Juárez · MC. Jessica Y. Guzman · Lic. Lucero de los Á. Nájera
-                  </p>
-                </div>
-              </div>
-
-              {/* Direct Links to the Report Sections */}
-              <div className="mt-6 flex flex-wrap gap-2.5">
-                <Link to="/reporte?tab=resumen" className="btn-editorial-primary px-6 py-3">
-                  Abrir Reporte Completo
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-                <Link
-                  to="/reporte?tab=metricas"
-                  className="btn-editorial-outline px-5 py-3"
-                >
-                  Encuesta (n=108) & Finanzas
-                </Link>
-                <Link
-                  to="/reporte?tab=metodologia"
-                  className="inline-flex items-center border border-[#E8DFDC] bg-white px-4 py-3 text-[11px] font-medium uppercase tracking-[0.14em] text-[#141312] transition-colors hover:border-[#141312]"
-                >
-                  Metodología & Bibliografía
-                </Link>
-                <Link
-                  to="/reporte?tab=diseno"
-                  className="inline-flex items-center border border-[#E8DFDC] bg-white px-4 py-3 text-[11px] font-medium uppercase tracking-[0.14em] text-[#141312] transition-colors hover:border-[#141312]"
-                >
-                  Brand Book UI/UX
-                </Link>
-              </div>
             </div>
 
-            {/* Right: 4 Executive KPI Cards */}
-            <div className="grid grid-cols-2 gap-4 lg:col-span-5">
-              <div className="border border-[#E8DFDC] bg-white p-5 sm:p-6">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#B58681]">
-                  Investigación
-                </p>
-                <p className="mt-2 font-serif text-4xl text-[#141312]">108</p>
-                <p className="mt-1 text-xs text-[#6E6561]">
-                  Encuestados en Cadereyta y Los Ramones
-                </p>
-              </div>
-              <div className="border border-[#E8DFDC] bg-white p-5 sm:p-6">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#B58681]">
-                  Disposición Precio
-                </p>
-                <p className="mt-2 font-serif text-4xl text-[#141312]">72%</p>
-                <p className="mt-1 text-xs text-[#6E6561]">Rango $100–$400 MXN validado</p>
-              </div>
-              <div className="border border-[#E8DFDC] bg-[#F4E3E0]/60 p-5 sm:p-6">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8C6B5D]">
-                  Recompra Mensual
-                </p>
-                <p className="mt-2 font-serif text-4xl text-[#141312]">48%</p>
-                <p className="mt-1 text-xs text-[#6E6561]">
-                  Canales líderes: Instagram y TikTok
-                </p>
-              </div>
-              <div className="border border-[#141312] bg-[#141312] p-5 text-white sm:p-6">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[#EBD7D4]">
-                  Margen Base
-                </p>
-                <p className="mt-2 font-serif text-4xl text-white">20%</p>
-                <p className="mt-1 text-xs text-[#D3C6C1]">
-                  Lote inicial de 55 piezas ($10,295.72)
-                </p>
-              </div>
+            <div className="flex flex-wrap gap-2.5">
+              <Link
+                to={`/reporte?tab=${activeReportTab}`}
+                className="btn-editorial-outline px-5 py-3"
+              >
+                Vista Pantalla Completa
+                <ExternalLink className="h-3.5 w-3.5" />
+              </Link>
             </div>
+          </div>
+
+          {/* 5 Interactive Report Tabs right on HomePage */}
+          <div
+            className="mt-8 grid grid-cols-2 gap-2 border-t border-[#E8DFDC] pt-6 sm:grid-cols-3 lg:grid-cols-5"
+            role="tablist"
+            aria-label="Secciones del Reporte del Proyecto Integrador"
+          >
+            {REPORT_TABS.map((tab) => {
+              const Icon = tab.icon;
+              const isActive = activeReportTab === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={isActive}
+                  onClick={() => setActiveReportTab(tab.id)}
+                  className={`flex items-center justify-center gap-2 border px-3 py-3.5 text-left transition-all duration-200 ${
+                    isActive
+                      ? 'border-[#141312] bg-[#141312] text-white'
+                      : 'border-[#E8DFDC] bg-white text-[#141312] hover:border-[#B58681] hover:bg-[#F4E3E0]/35'
+                  }`}
+                >
+                  <Icon
+                    className={`h-4 w-4 shrink-0 ${
+                      isActive ? 'text-[#EBD7D4]' : 'text-[#B58681]'
+                    }`}
+                  />
+                  <span className="hidden text-[10px] font-semibold uppercase tracking-[0.12em] xl:inline">
+                    {tab.label}
+                  </span>
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.12em] xl:hidden">
+                    {tab.shortLabel}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Active Full Report Panel */}
+          <div className="mt-6 border border-[#E8DFDC] bg-white p-5 sm:p-8">
+            {activeReportTab === 'resumen' && <ExecutiveSummaryTab />}
+            {activeReportTab === 'metodologia' && <MethodologyTab />}
+            {activeReportTab === 'metricas' && <MetricsChartsTab />}
+            {activeReportTab === 'arquitectura' && <ArchitectureTab />}
+            {activeReportTab === 'diseno' && <DesignSystemTab />}
           </div>
         </div>
       </section>
