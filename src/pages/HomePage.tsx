@@ -90,7 +90,7 @@ export const HomePage: React.FC = () => {
   const [slideIdx, setSlideIdx] = useState(0);
   const [activeTab, setActiveTab] = useState<HomeReportSection>('resumen');
   const currentSlide = HERO_SLIDES[slideIdx];
-  const bestsellers = PRODUCTS.filter((p) => p.isBestseller).slice(0, 8);
+  const bestsellers = PRODUCTS.filter((p) => p.isBestseller).slice(0, 4);
 
   const prevSlide = () =>
     setSlideIdx((prev) => (prev === 0 ? HERO_SLIDES.length - 1 : prev - 1));
