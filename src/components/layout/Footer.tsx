@@ -23,6 +23,9 @@ export const Footer: React.FC = () => {
             aria-label="Enlaces del pie de página"
             className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] font-medium uppercase tracking-[0.16em] text-[#141312]"
           >
+            <Link to="/" className="transition-colors hover:text-[#B58681]">
+              Inicio
+            </Link>
             <Link to="/tienda" className="transition-colors hover:text-[#B58681]">
               Tienda
             </Link>
@@ -31,9 +34,6 @@ export const Footer: React.FC = () => {
             </Link>
             <Link to="/tienda?categoria=Labios" className="transition-colors hover:text-[#B58681]">
               Labios
-            </Link>
-            <Link to="/reporte" className="transition-colors hover:text-[#B58681]">
-              Reporte UTC
             </Link>
             <Link to="/checkout" className="transition-colors hover:text-[#B58681]">
               Checkout

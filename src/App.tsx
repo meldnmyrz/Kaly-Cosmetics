@@ -8,7 +8,6 @@ import { ToastNotification } from './components/ui/ToastNotification';
 import { HomePage } from './pages/HomePage';
 import { ShopPage } from './pages/ShopPage';
 import { ProductDetailPage } from './pages/ProductDetailPage';
-import { ReportPage } from './pages/ReportPage';
 import { CheckoutPage } from './pages/CheckoutPage';
 
 const ScrollToTop: React.FC = () => {
@@ -30,7 +29,6 @@ export const App: React.FC = () => {
             <Route path="/" element={<HomePage />} />
             <Route path="/tienda" element={<ShopPage />} />
             <Route path="/producto/:id" element={<ProductDetailPage />} />
-            <Route path="/reporte" element={<ReportPage />} />
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="*" element={<HomePage />} />
           </Routes>

@@ -293,8 +293,8 @@ export const CheckoutPage: React.FC = () => {
               <Link to="/tienda" className="btn-editorial-primary">
                 Seguir Comprando
               </Link>
-              <Link to="/reporte" className="btn-editorial-outline">
-                Explorar Reporte del Proyecto
+              <Link to="/" className="btn-editorial-outline">
+                Volver al Inicio
               </Link>
             </div>
           </div>

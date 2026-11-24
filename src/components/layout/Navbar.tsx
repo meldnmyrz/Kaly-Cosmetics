@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { Heart, Menu, Search, ShoppingBag, X, FileBarChart2 } from 'lucide-react';
+import { Heart, Menu, Search, ShoppingBag, X } from 'lucide-react';
 import { KalyLogo } from '../ui/KalyLogo';
 import { useShopStore } from '../../store/useShopStore';
 import { PRODUCTS } from '../../data/products';
@@ -8,9 +8,9 @@ import { PRODUCTS } from '../../data/products';
 const NAV_LINKS = [
   { to: '/', label: 'Inicio', exact: true },
   { to: '/tienda', label: 'Tienda' },
+  { to: '/tienda?categoria=Rostro', label: 'Rostro' },
   { to: '/tienda?categoria=Skincare', label: 'Skincare' },
   { to: '/tienda?categoria=Labios', label: 'Labios' },
-  { to: '/reporte', label: 'Reporte del Proyecto', isReport: true },
 ];
 
 export const Navbar: React.FC = () => {
@@ -99,17 +99,12 @@ export const Navbar: React.FC = () => {
                 end={link.exact}
                 className={({ isActive }) =>
                   `inline-flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.16em] transition-colors duration-200 ${
-                    link.isReport
-                      ? isActive
-                        ? 'border-b border-[#B58681] pb-0.5 text-[#B58681]'
-                        : 'border border-[#E8DFDC] bg-[#F4E3E0]/55 px-3 py-1.5 text-[#141312] hover:border-[#B58681] hover:bg-[#F4E3E0]'
-                      : isActive
-                        ? 'text-[#B58681]'
-                        : 'text-[#141312] hover:text-[#B58681]'
+                    isActive
+                      ? 'text-[#B58681]'
+                      : 'text-[#141312] hover:text-[#B58681]'
                   }`
                 }
               >
-                {link.isReport && <FileBarChart2 className="h-3.5 w-3.5 text-[#B58681]" strokeWidth={1.7} />}
                 {link.label}
               </NavLink>
             );
@@ -222,7 +217,6 @@ export const Navbar: React.FC = () => {
                 className="flex items-center justify-between border-b border-[#E8DFDC] pb-3 text-xs font-medium uppercase tracking-[0.18em] text-[#141312]"
               >
                 <span>{link.label}</span>
-                {link.isReport && <FileBarChart2 className="h-4 w-4 text-[#B58681]" />}
               </Link>
             ))}
             <Link

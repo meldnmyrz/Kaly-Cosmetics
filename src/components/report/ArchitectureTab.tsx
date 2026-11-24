@@ -17,7 +17,7 @@ const ARCH_NODES: ArchNode[] = [
     layer: 'Capa de Navegación',
     tech: 'React Router v6 (BrowserRouter)',
     description:
-      'Administra 5 vistas independientes con URL limpia (/ , /tienda , /producto/:id , /reporte , /checkout) y Layout persistente con scroll-to-top automático.',
+      'Administra las vistas independientes con URL limpia (/ , /tienda , /producto/:id , /checkout) y Layout persistente con scroll-to-top automático.',
     files: ['src/App.tsx', 'src/components/layout/Navbar.tsx', 'src/components/layout/Footer.tsx'],
   },
   {
@@ -45,7 +45,7 @@ const ARCH_NODES: ArchNode[] = [
     tech: 'Recharts + Tailwind Design Tokens',
     description:
       'Transforma el documento académico de la UTC en un caso de estudio interactivo con simulador de margen comercial, gráficas de la encuesta (n=108) y muestrario vivo del sistema visual.',
-    files: ['src/data/reportData.ts', 'src/pages/ReportPage.tsx', 'src/components/report/*'],
+    files: ['src/data/reportData.ts', 'src/pages/HomePage.tsx', 'src/components/report/*'],
   },
 ];
 
@@ -211,10 +211,9 @@ export const ArchitectureTab: React.FC = () => {
           </div>
           <ul className="mt-5 space-y-3">
             {[
-              { path: '/', desc: 'Escaparate Editorial (Hero, Más Vendidos, Colecciones, Acceso al Reporte)' },
+              { path: '/', desc: 'Inicio: Escaparate Editorial + Reporte Técnico completo del Proyecto Integrador UTC' },
               { path: '/tienda', desc: 'Catálogo con filtros en vivo por categoría, acabado, precio y orden' },
               { path: '/producto/:id', desc: 'Ficha individual con galería, swatches dinámicos, ingredientes y uso' },
-              { path: '/reporte', desc: 'Brand Book & Reporte Ejecutivo interactivo con 4 sub-secciones' },
               { path: '/checkout', desc: 'Checkout paso a paso con validación y recibo de confirmación' },
             ].map((route) => (
               <li key={route.path} className="border border-[#E8DFDC] bg-white p-3.5">

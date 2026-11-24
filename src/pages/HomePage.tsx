@@ -15,7 +15,6 @@ import {
   BarChart3,
   Cpu,
   Palette,
-  ExternalLink,
   type LucideIcon,
 } from 'lucide-react';
 import { PRODUCTS } from '../data/products';
@@ -49,8 +48,8 @@ const HERO_SLIDES = [
       'Explora nuestra curaduría de maquillaje original importado y skincare K-Beauty diseñado para el clima y estilo de Cadereyta y Los Ramones.',
     ctaLabel: 'Explorar Novedades',
     ctaTo: '/tienda',
-    secondaryLabel: 'Ver Reporte Ejecutivo',
-    secondaryTo: '/reporte',
+    secondaryLabel: 'Ver Reporte Integrador',
+    secondaryTo: '#reporte-proyecto',
     image: '/images/hero-glow.jpg',
   },
   {
@@ -155,12 +154,21 @@ export const HomePage: React.FC = () => {
                 {currentSlide.ctaLabel}
                 <ChevronRight className="h-4 w-4" />
               </Link>
-              <Link
-                to={currentSlide.secondaryTo}
-                className="inline-flex items-center gap-2 border border-white/65 bg-white/10 px-6 py-3.5 text-[11px] font-medium uppercase tracking-[0.16em] text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-[#141312]"
-              >
-                {currentSlide.secondaryLabel}
-              </Link>
+              {currentSlide.secondaryTo.startsWith('#') ? (
+                <a
+                  href={currentSlide.secondaryTo}
+                  className="inline-flex items-center gap-2 border border-white/65 bg-white/10 px-6 py-3.5 text-[11px] font-medium uppercase tracking-[0.16em] text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-[#141312]"
+                >
+                  {currentSlide.secondaryLabel}
+                </a>
+              ) : (
+                <Link
+                  to={currentSlide.secondaryTo}
+                  className="inline-flex items-center gap-2 border border-white/65 bg-white/10 px-6 py-3.5 text-[11px] font-medium uppercase tracking-[0.16em] text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-[#141312]"
+                >
+                  {currentSlide.secondaryLabel}
+                </Link>
+              )}
             </div>
           </div>
         </div>
@@ -247,12 +255,9 @@ export const HomePage: React.FC = () => {
             </div>
 
             <div className="flex flex-wrap gap-2.5">
-              <Link
-                to={`/reporte?tab=${activeReportTab}`}
-                className="btn-editorial-outline px-5 py-3"
-              >
-                Vista Pantalla Completa
-                <ExternalLink className="h-3.5 w-3.5" />
+              <Link to="/tienda" className="btn-editorial-primary px-6 py-3">
+                Explorar Tienda en Vivo
+                <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>

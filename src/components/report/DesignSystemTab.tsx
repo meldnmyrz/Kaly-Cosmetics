@@ -134,7 +134,7 @@ export const DesignSystemTab: React.FC = () => {
                 UI & Navegación · Plus Jakarta Sans · 11px / Tracking 0.16em
               </p>
               <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.18em] text-[#141312]">
-                INICIO · TIENDA · SKINCARE · LABIOS · REPORTE DEL PROYECTO
+                INICIO · TIENDA · ROSTRO · SKINCARE · LABIOS
               </p>
             </div>
             <div className="pt-5">
