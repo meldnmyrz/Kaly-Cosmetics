@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Instagram, Mail, Sparkles } from 'lucide-react';
 import { KalyLogo } from '../ui/KalyLogo';
+import { PROJECT_META } from '../../data/reportData';
 
 export const Footer: React.FC = () => {
   return (
@@ -81,6 +82,15 @@ export const Footer: React.FC = () => {
               @kalycosmetics.mx · hola@kalycosmetics.mx
             </p>
           </div>
+        </div>
+        {/* Subtle Team Credits Line */}
+        <div className="mt-8 border-t border-[#F3E7EA] pt-5 text-center">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#A8747C]">
+            Alumnos Participantes · Equipo {PROJECT_META.team}
+          </p>
+          <p className="mx-auto mt-1.5 max-w-4xl text-[11px] leading-relaxed text-[#7D6E71]">
+            {PROJECT_META.participants.join(' · ')}
+          </p>
         </div>
       </div>
 

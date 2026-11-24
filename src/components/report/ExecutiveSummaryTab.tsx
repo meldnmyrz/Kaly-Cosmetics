@@ -98,6 +98,16 @@ export const ExecutiveSummaryTab: React.FC = () => {
                   ))}
                 </dd>
               </div>
+              <div className="border-t border-[#F7EFF1] pt-2.5">
+                <dt className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#A8747C]">
+                  Alumnos Participantes ({PROJECT_META.participants.length})
+                </dt>
+                <dd className="mt-2 grid grid-cols-1 gap-x-3 gap-y-1 text-[11px] text-[#4E4244] sm:grid-cols-2">
+                  {PROJECT_META.participants.map((student) => (
+                    <p key={student}>• {student}</p>
+                  ))}
+                </dd>
+              </div>
             </dl>
           </div>
 
