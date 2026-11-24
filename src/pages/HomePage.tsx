@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
+  ChevronLeft,
+  ChevronRight,
   ShieldCheck,
   Sparkles,
   Heart,
@@ -20,6 +22,31 @@ import { SurveyDataTab } from '../components/report/SurveyDataTab';
 import { FinanceAnnexTab } from '../components/report/FinanceAnnexTab';
 
 type HomeReportSection = 'resumen' | 'metodologia' | 'encuesta' | 'finanzas';
+
+const HERO_SLIDES = [
+  {
+    eyebrow: 'KALY COSMETIC’S · NUEVA COLECCIÓN',
+    title: 'REVELA TU BRILLO NATURAL',
+    subtitle:
+      'Explora nuestra curaduría de maquillaje original importado y skincare K-Beauty diseñado para el clima y estilo de Cadereyta y Los Ramones.',
+    ctaLabel: 'Explorar Novedades',
+    ctaTo: '/tienda',
+    secondaryLabel: 'Ver Proyecto UTC',
+    secondaryTo: '#proyecto-integrador',
+    image: '/images/hero-glow.jpg',
+  },
+  {
+    eyebrow: 'BELLEZA INTEGRAL · CENTELLA ASIÁTICA',
+    title: 'PIEL SANA, MAQUILLAJE BONITO',
+    subtitle:
+      'Combina nuestros sueros hidratantes y cremas ligeras con bases y glosses virales en TikTok desde $191 MXN.',
+    ctaLabel: 'Descubrir Skincare',
+    ctaTo: '/tienda?categoria=Skincare',
+    secondaryLabel: 'Ver Encuesta & Costos',
+    secondaryTo: '#proyecto-integrador',
+    image: '/images/hero-glow.jpg',
+  },
+];
 
 const REPORT_TABS: Array<{
   id: HomeReportSection;
@@ -80,64 +107,82 @@ const POPULAR_CATEGORIES = [
 ];
 
 export const HomePage: React.FC = () => {
+  const [slideIdx, setSlideIdx] = useState(0);
   const [activeTab, setActiveTab] = useState<HomeReportSection>('resumen');
+  const currentSlide = HERO_SLIDES[slideIdx];
   const bestsellers = PRODUCTS.filter((p) => p.isBestseller).slice(0, 4);
+
+  const prevSlide = () =>
+    setSlideIdx((prev) => (prev === 0 ? HERO_SLIDES.length - 1 : prev - 1));
+  const nextSlide = () =>
+    setSlideIdx((prev) => (prev === HERO_SLIDES.length - 1 ? 0 : prev + 1));
 
   return (
     <div className="animate-fade-in bg-white">
-      {/* 1. Lúmé-style Split Editorial Hero */}
-      <section className="w-full overflow-hidden bg-[#F7E3E0]">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-12">
-          {/* Left Portrait */}
-          <div className="relative min-h-[340px] sm:min-h-[430px] lg:col-span-6 lg:min-h-[500px]">
-            <img
-              src="/images/hero-glow.jpg"
-              alt="Kaly Cosmetic's — Belleza Luminosa"
-              className="h-full w-full object-cover object-[76%_center]"
-            />
-          </div>
+      {/* 1. Original Full-Bleed Editorial Portrait Hero */}
+      <section className="relative min-h-[520px] w-full overflow-hidden bg-[#6E5448] sm:min-h-[580px] lg:min-h-[620px]">
+        <img
+          src={currentSlide.image}
+          alt="Campaña editorial Kaly Cosmetic's"
+          className="absolute inset-0 h-full w-full object-cover object-[72%_center] transition-all duration-700"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#4A3830]/90 via-[#6B5146]/55 to-transparent" />
 
-          {/* Right Soft Blush Typography Block */}
-          <div className="relative flex flex-col justify-center overflow-hidden bg-[#F7E3E0] px-8 py-14 sm:px-14 lg:col-span-6 lg:px-16">
-            {/* Subtle cosmetic texture accent on far right */}
-            <img
-              src="/images/cat-labios.jpg"
-              alt=""
-              aria-hidden="true"
-              className="pointer-events-none absolute -right-24 top-1/2 hidden h-72 w-72 -translate-y-1/2 rounded-full object-cover opacity-25 mix-blend-multiply xl:block"
-            />
-
-            <div className="relative z-10 max-w-md">
-              <p className="font-display text-[10px] font-semibold uppercase tracking-[0.22em] text-[#8E6562]">
-                Nueva Colección · Kaly Cosmetic’s
-              </p>
-
-              <h1 className="mt-3 font-display text-4xl font-semibold uppercase leading-[1.06] tracking-[-0.01em] text-[#141312] sm:text-5xl lg:text-[52px]">
-                Brilla.
-                <br />
-                Define.
-                <br />
-                Tú.
-              </h1>
-
-              <p className="mt-5 text-[13px] leading-relaxed text-[#574D4A] sm:text-sm">
-                Belleza sin esfuerzo con maquillaje original importado y skincare K-Beauty
-                seleccionado para piel sana y luminosa todos los días.
-              </p>
-
-              <div className="mt-7 flex flex-wrap items-center gap-3">
-                <Link to="/tienda" className="btn-editorial-primary px-8 py-3.5">
-                  Comprar Ahora
-                </Link>
-                <a
-                  href="#proyecto-integrador"
-                  className="btn-editorial-outline px-6 py-3.5"
-                >
-                  Proyecto UTC
-                </a>
-              </div>
+        <div className="relative mx-auto flex min-h-[520px] max-w-7xl items-center px-6 py-20 sm:min-h-[580px] sm:px-10 lg:min-h-[620px] lg:px-14">
+          <div className="max-w-xl">
+            <p className="font-display text-[11px] font-semibold uppercase tracking-[0.26em] text-[#E6BDB5]">
+              {currentSlide.eyebrow}
+            </p>
+            <h1 className="mt-4 font-display text-4xl font-semibold uppercase leading-[1.06] tracking-[0.02em] text-white sm:text-5xl lg:text-[58px]">
+              {currentSlide.title}
+            </h1>
+            <p className="mt-5 max-w-md text-sm font-light leading-relaxed text-[#F5EDE9] sm:text-[15px]">
+              {currentSlide.subtitle}
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-3.5">
+              <Link to={currentSlide.ctaTo} className="btn-editorial-primary bg-[#141312] px-8 py-3.5">
+                {currentSlide.ctaLabel}
+                <ChevronRight className="h-4 w-4" />
+              </Link>
+              <a
+                href={currentSlide.secondaryTo}
+                className="inline-flex items-center gap-2 border border-white/65 bg-white/10 px-6 py-3.5 font-display text-[10px] font-semibold uppercase tracking-[0.18em] text-white backdrop-blur-sm transition-colors hover:bg-white hover:text-[#141312]"
+              >
+                {currentSlide.secondaryLabel}
+              </a>
             </div>
           </div>
+        </div>
+
+        <button
+          type="button"
+          onClick={prevSlide}
+          aria-label="Slide anterior"
+          className="absolute left-3 top-1/2 hidden h-11 w-9 -translate-y-1/2 items-center justify-center bg-[#141312]/35 text-white transition-colors hover:bg-[#141312]/70 sm:flex"
+        >
+          <ChevronLeft className="h-5 w-5" strokeWidth={1.4} />
+        </button>
+        <button
+          type="button"
+          onClick={nextSlide}
+          aria-label="Siguiente slide"
+          className="absolute right-3 top-1/2 hidden h-11 w-9 -translate-y-1/2 items-center justify-center bg-[#141312]/35 text-white transition-colors hover:bg-[#141312]/70 sm:flex"
+        >
+          <ChevronRight className="h-5 w-5" strokeWidth={1.4} />
+        </button>
+
+        <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 gap-2">
+          {HERO_SLIDES.map((_, idx) => (
+            <button
+              key={idx}
+              type="button"
+              onClick={() => setSlideIdx(idx)}
+              aria-label={`Ir a campaña ${idx + 1}`}
+              className={`h-1 transition-all ${
+                idx === slideIdx ? 'w-8 bg-white' : 'w-4 bg-white/40 hover:bg-white/70'
+              }`}
+            />
+          ))}
         </div>
       </section>
 
