@@ -5,68 +5,88 @@ import { KalyLogo } from '../ui/KalyLogo';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="mt-auto w-full border-t border-[#E8DFDC] bg-[#FAF7F5]">
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
-          {/* Brand */}
+    <footer className="mt-auto w-full border-t border-[#F0E3E6] bg-white">
+      <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-3">
+          {/* Left: Brand & Location */}
           <div>
             <Link to="/">
               <KalyLogo size="sm" tone="rose" />
             </Link>
-            <p className="mt-2.5 text-xs text-[#6E6561]">
-              Piel sana + maquillaje bonito · Cadereyta Jiménez & Los Ramones, N.L.
+            <p className="mt-3 text-xs leading-relaxed text-[#7D6E71]">
+              Cadereyta Jiménez & Los Ramones, Nuevo León
+              <br />
+              Piel sana + maquillaje bonito
             </p>
           </div>
 
-          {/* Compact Navigation Links */}
-          <nav
-            aria-label="Enlaces del pie de página"
-            className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] font-medium uppercase tracking-[0.16em] text-[#141312]"
-          >
-            <Link to="/" className="transition-colors hover:text-[#B58681]">
-              Inicio
-            </Link>
-            <Link to="/tienda" className="transition-colors hover:text-[#B58681]">
-              Tienda
-            </Link>
-            <Link to="/tienda?categoria=Skincare" className="transition-colors hover:text-[#B58681]">
-              Skincare
-            </Link>
-            <Link to="/tienda?categoria=Labios" className="transition-colors hover:text-[#B58681]">
-              Labios
-            </Link>
-            <Link to="/checkout" className="transition-colors hover:text-[#B58681]">
-              Checkout
-            </Link>
-          </nav>
+          {/* Center: Clean Quick Links */}
+          <div>
+            <h4 className="font-sans text-[11px] font-semibold uppercase tracking-[0.16em] text-[#2A2324]">
+              Enlaces Rápidos
+            </h4>
+            <ul className="mt-3 space-y-1.5 text-xs text-[#7D6E71]">
+              <li>
+                <Link to="/" className="transition-colors hover:text-[#A8747C]">
+                  Inicio & Proyecto Integrador
+                </Link>
+              </li>
+              <li>
+                <Link to="/tienda" className="transition-colors hover:text-[#A8747C]">
+                  Catálogo Completo
+                </Link>
+              </li>
+              <li>
+                <Link to="/tienda?categoria=Skincare" className="transition-colors hover:text-[#A8747C]">
+                  Skincare & Centella
+                </Link>
+              </li>
+              <li>
+                <Link to="/checkout" className="transition-colors hover:text-[#A8747C]">
+                  Checkout
+                </Link>
+              </li>
+            </ul>
+          </div>
 
-          {/* Compact Social / Contact */}
-          <div className="flex items-center gap-4 text-xs text-[#6E6561]">
-            <span className="inline-flex items-center gap-1.5">
-              <Instagram className="h-3.5 w-3.5 text-[#B58681]" />
-              @kalycosmetics.mx
-            </span>
-            <span className="inline-flex items-center gap-1.5">
-              <Sparkles className="h-3.5 w-3.5 text-[#B58681]" />
-              TikTok
-            </span>
-            <a
-              href="mailto:hola@kalycosmetics.mx"
-              className="inline-flex items-center gap-1.5 transition-colors hover:text-[#141312]"
-              aria-label="Enviar correo a Kaly Cosmetic's"
-            >
-              <Mail className="h-3.5 w-3.5 text-[#B58681]" />
-            </a>
+          {/* Right: Socials */}
+          <div>
+            <h4 className="font-sans text-[11px] font-semibold uppercase tracking-[0.16em] text-[#2A2324]">
+              Síguenos
+            </h4>
+            <div className="mt-3 flex items-center gap-2.5">
+              <a
+                href="#comunidad"
+                className="flex h-8 w-8 items-center justify-center rounded-full bg-[#F6E6E9] text-[#8E5D65] transition-colors hover:bg-[#A8747C] hover:text-white"
+                aria-label="Instagram @kalycosmetics.mx"
+              >
+                <Instagram className="h-3.5 w-3.5" />
+              </a>
+              <a
+                href="#comunidad"
+                className="flex h-8 w-8 items-center justify-center rounded-full bg-[#F6E6E9] text-[#8E5D65] transition-colors hover:bg-[#A8747C] hover:text-white"
+                aria-label="TikTok @kalycosmetics.nl"
+              >
+                <Sparkles className="h-3.5 w-3.5" />
+              </a>
+              <a
+                href="mailto:hola@kalycosmetics.mx"
+                className="flex h-8 w-8 items-center justify-center rounded-full bg-[#F6E6E9] text-[#8E5D65] transition-colors hover:bg-[#A8747C] hover:text-white"
+                aria-label="Correo hola@kalycosmetics.mx"
+              >
+                <Mail className="h-3.5 w-3.5" />
+              </a>
+            </div>
+            <p className="mt-2.5 text-[11px] text-[#857578]">
+              @kalycosmetics.mx · hola@kalycosmetics.mx
+            </p>
           </div>
         </div>
+      </div>
 
-        {/* Slim Bottom Bar */}
-        <div className="mt-8 flex flex-col items-center justify-between gap-2 border-t border-[#E8DFDC] pt-5 text-[11px] text-[#8C827D] sm:flex-row">
-          <p>© 2026 Kaly Cosmetic’s · Universidad Tecnológica Cadereyta · Equipo 73TSUM4N</p>
-          <p className="uppercase tracking-[0.14em] text-[#B58681]">
-            E-Commerce & Reporte Ejecutivo
-          </p>
-        </div>
+      {/* Thin Mauve Bottom Strip (matching Nura Beauty screenshot) */}
+      <div className="bg-[#B3838B] px-4 py-2.5 text-center text-[10px] tracking-[0.12em] text-white/95">
+        © 2026 Kaly Cosmetic’s · Universidad Tecnológica Cadereyta · Equipo 73TSUM4N · Todos los derechos reservados
       </div>
     </footer>
   );

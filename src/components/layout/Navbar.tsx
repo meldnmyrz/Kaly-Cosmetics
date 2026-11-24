@@ -48,25 +48,24 @@ export const Navbar: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-[#E8DFDC] bg-[#FAF7F5]/95 backdrop-blur-md">
-      {/* Top Announcement Bar (exact Reference 1 style) */}
-      <div className="bg-[#0F0E0E] px-4 py-2 text-center text-[10px] font-medium uppercase tracking-[0.2em] text-[#FAF7F5]">
-        <span>Envío gratis en pedidos desde $800 MXN</span>
-        <span className="mx-2.5 text-[#B58681]">•</span>
+    <header className="sticky top-0 z-40 w-full border-b border-[#F0E3E6] bg-white/95 backdrop-blur-md">
+      {/* Subtle Dusty-Mauve Announcement Strip */}
+      <div className="bg-[#B3838B] px-4 py-2 text-center text-[10px] font-medium uppercase tracking-[0.2em] text-white">
+        <span>Envío gratis desde $800 MXN</span>
+        <span className="mx-2 opacity-60">•</span>
         <span className="hidden sm:inline">
-          Código VIP <strong className="text-[#EBD7D4]">KALY10</strong> (10% OFF) — Cadereyta & Los Ramones, N.L.
+          Kaly Cosmetic’s · Cadereyta Jiménez & Los Ramones, N.L. · Código VIP KALY10
         </span>
         <span className="sm:hidden">Código VIP: KALY10</span>
       </div>
 
-      {/* Main Header Row */}
+      {/* Main Clean White Header */}
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Left: Mobile Menu Button + Logo */}
         <div className="flex items-center gap-3">
           <button
             type="button"
             onClick={() => setMobileMenuOpen((prev) => !prev)}
-            className="flex h-9 w-9 items-center justify-center text-[#141312] lg:hidden"
+            className="flex h-9 w-9 items-center justify-center text-[#2A2324] lg:hidden"
             aria-label="Abrir menú de navegación"
           >
             {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -77,8 +76,8 @@ export const Navbar: React.FC = () => {
           </Link>
         </div>
 
-        {/* Center: Navigation Links */}
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="Navegación principal">
+        {/* Center Navigation */}
+        <nav className="hidden items-center gap-8 lg:flex" aria-label="Navegación principal">
           {NAV_LINKS.map((link) => {
             const isQueryLink = link.to.includes('?');
             if (isQueryLink) {
@@ -86,7 +85,7 @@ export const Navbar: React.FC = () => {
                 <Link
                   key={link.label}
                   to={link.to}
-                  className="text-[11px] font-medium uppercase tracking-[0.16em] text-[#141312] transition-colors duration-200 hover:text-[#B58681]"
+                  className="text-[11px] font-medium uppercase tracking-[0.16em] text-[#4E4244] transition-colors duration-200 hover:text-[#A8747C]"
                 >
                   {link.label}
                 </Link>
@@ -98,10 +97,10 @@ export const Navbar: React.FC = () => {
                 to={link.to}
                 end={link.exact}
                 className={({ isActive }) =>
-                  `inline-flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.16em] transition-colors duration-200 ${
+                  `text-[11px] font-medium uppercase tracking-[0.16em] transition-colors duration-200 ${
                     isActive
-                      ? 'text-[#B58681]'
-                      : 'text-[#141312] hover:text-[#B58681]'
+                      ? 'text-[#A8747C]'
+                      : 'text-[#4E4244] hover:text-[#A8747C]'
                   }`
                 }
               >
@@ -111,26 +110,30 @@ export const Navbar: React.FC = () => {
           })}
         </nav>
 
-        {/* Right: Utility Icons */}
+        {/* Right Utility Icons */}
         <div className="flex items-center gap-2 sm:gap-4">
           <button
             type="button"
             onClick={toggleSearch}
-            className="flex h-9 w-9 items-center justify-center text-[#141312] transition-colors hover:text-[#B58681]"
+            className="flex h-9 w-9 items-center justify-center text-[#4E4244] transition-colors hover:text-[#A8747C]"
             aria-label="Buscar productos"
           >
-            {isSearchOpen ? <X className="h-[19px] w-[19px]" strokeWidth={1.6} /> : <Search className="h-[19px] w-[19px]" strokeWidth={1.6} />}
+            {isSearchOpen ? (
+              <X className="h-[18px] w-[18px]" strokeWidth={1.6} />
+            ) : (
+              <Search className="h-[18px] w-[18px]" strokeWidth={1.6} />
+            )}
           </button>
 
           <button
             type="button"
             onClick={openWishlist}
-            className="relative flex h-9 w-9 items-center justify-center text-[#141312] transition-colors hover:text-[#B58681]"
+            className="relative flex h-9 w-9 items-center justify-center text-[#4E4244] transition-colors hover:text-[#A8747C]"
             aria-label="Abrir lista de favoritos"
           >
-            <Heart className="h-[19px] w-[19px]" strokeWidth={1.6} />
+            <Heart className="h-[18px] w-[18px]" strokeWidth={1.6} />
             {wishlistCount > 0 && (
-              <span className="absolute -right-0.5 top-0.5 flex h-4 min-w-[16px] items-center justify-center rounded-full bg-[#B58681] px-1 text-[9px] font-semibold text-white">
+              <span className="absolute -right-0.5 top-0.5 flex h-4 min-w-[16px] items-center justify-center rounded-full bg-[#A8747C] px-1 text-[9px] font-semibold text-white">
                 {wishlistCount}
               </span>
             )}
@@ -139,22 +142,22 @@ export const Navbar: React.FC = () => {
           <button
             type="button"
             onClick={openCart}
-            className="relative flex h-9 items-center gap-1.5 px-1 text-[#141312] transition-colors hover:text-[#B58681]"
+            className="relative flex h-9 items-center gap-1.5 px-1 text-[#4E4244] transition-colors hover:text-[#A8747C]"
             aria-label="Abrir bolsa de compras"
           >
-            <ShoppingBag className="h-[19px] w-[19px]" strokeWidth={1.6} />
+            <ShoppingBag className="h-[18px] w-[18px]" strokeWidth={1.6} />
             <span className="text-[11px] font-medium tracking-wider">({cartCount})</span>
           </button>
         </div>
       </div>
 
-      {/* Quick Search Overlay Bar */}
+      {/* Quick Search Bar */}
       {isSearchOpen && (
-        <div className="animate-fade-in border-t border-[#E8DFDC] bg-white px-4 py-5 shadow-sm">
+        <div className="animate-fade-in border-t border-[#F0E3E6] bg-[#FCF8F9] px-4 py-5">
           <div className="mx-auto max-w-3xl">
             <form onSubmit={handleSearchSubmit} className="flex gap-2">
               <div className="relative flex-1">
-                <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#6E6561]" />
+                <Search className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-[#857578]" />
                 <input
                   type="text"
                   autoFocus
@@ -170,7 +173,7 @@ export const Navbar: React.FC = () => {
             </form>
 
             {searchResults.length > 0 && (
-              <div className="mt-4 divide-y divide-[#E8DFDC] border border-[#E8DFDC]">
+              <div className="mt-4 divide-y divide-[#F0E3E6] rounded-md border border-[#F0E3E6] bg-white">
                 {searchResults.map((item) => (
                   <Link
                     key={item.id}
@@ -179,22 +182,22 @@ export const Navbar: React.FC = () => {
                       closeSearch();
                       setSearchQuery('');
                     }}
-                    className="flex items-center justify-between gap-4 bg-white p-3 transition-colors hover:bg-[#FAF7F5]"
+                    className="flex items-center justify-between gap-4 p-3 transition-colors hover:bg-[#FCF8F9]"
                   >
                     <div className="flex items-center gap-3">
                       <img
                         src={item.images[0]}
                         alt={item.name}
-                        className="h-12 w-10 bg-[#F6F4F2] object-cover"
+                        className="h-12 w-10 rounded-sm bg-[#FAF3F4] object-cover"
                       />
                       <div>
-                        <p className="text-xs font-medium uppercase tracking-[0.12em] text-[#B58681]">
+                        <p className="text-[10px] font-medium uppercase tracking-[0.12em] text-[#A8747C]">
                           {item.brand}
                         </p>
-                        <p className="text-sm font-medium text-[#141312]">{item.name}</p>
+                        <p className="text-sm font-medium text-[#2A2324]">{item.name}</p>
                       </div>
                     </div>
-                    <span className="text-sm font-semibold text-[#141312]">
+                    <span className="text-sm font-semibold text-[#2A2324]">
                       ${item.price} MXN
                     </span>
                   </Link>
@@ -205,18 +208,18 @@ export const Navbar: React.FC = () => {
         </div>
       )}
 
-      {/* Mobile Navigation Drawer */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="animate-fade-in border-t border-[#E8DFDC] bg-[#FAF7F5] px-6 py-6 lg:hidden">
+        <div className="animate-fade-in border-t border-[#F0E3E6] bg-white px-6 py-6 lg:hidden">
           <div className="flex flex-col space-y-4">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.label}
                 to={link.to}
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between border-b border-[#E8DFDC] pb-3 text-xs font-medium uppercase tracking-[0.18em] text-[#141312]"
+                className="border-b border-[#F3E7EA] pb-3 text-xs font-medium uppercase tracking-[0.18em] text-[#2A2324]"
               >
-                <span>{link.label}</span>
+                {link.label}
               </Link>
             ))}
             <Link

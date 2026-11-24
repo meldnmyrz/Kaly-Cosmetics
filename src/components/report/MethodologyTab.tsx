@@ -1,211 +1,126 @@
 import React from 'react';
 import {
   ClipboardList,
-  CheckCircle2,
-  Sparkles,
   BookMarked,
   Sliders,
   ListChecks,
+  CheckCircle2,
+  Award,
 } from 'lucide-react';
-import {
-  ACTION_PLAN_STEPS,
-  BIBLIOGRAPHY_GROUPS,
-  SURVEY_RESULTS_CATALOG,
-} from '../../data/reportData';
+import { ACTION_PLAN_STEPS, BIBLIOGRAPHY_GROUPS } from '../../data/reportData';
 
 export const MethodologyTab: React.FC = () => {
   return (
-    <div className="animate-fade-in space-y-10">
-      {/* A, B, C Methodology Structure */}
-      <div className="border border-[#E8DFDC] bg-[#FAF7F5] p-8">
-        <div className="flex items-center gap-2 text-[#B58681]">
+    <div className="animate-fade-in space-y-8">
+      {/* Metodología A, B, C */}
+      <div className="rounded-lg border border-[#F0E3E6] bg-[#FCF8F9] p-7">
+        <div className="flex items-center gap-2 text-[#A8747C]">
           <ClipboardList className="h-4 w-4" />
           <span className="text-[10px] font-semibold uppercase tracking-[0.2em]">
             Metodología Propuesta · Reporte Técnico UTC
           </span>
         </div>
-        <h3 className="mt-2 font-serif text-3xl text-[#141312]">
-          Diseño de la Investigación, Recolección (n = 108) y Análisis
+        <h3 className="mt-1.5 font-serif text-3xl text-[#2A2324]">
+          Diseño, Recolección (n = 108) e Interpretación
         </h3>
 
-        <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
-          <div className="border border-[#E8DFDC] bg-white p-6">
+        <div className="mt-5 grid grid-cols-1 gap-5 lg:grid-cols-3">
+          <div className="rounded-md border border-[#F0E3E6] bg-white p-5">
             <span className="editorial-badge">A. Diseño</span>
-            <h4 className="mt-3 font-serif text-2xl text-[#141312]">
+            <h4 className="mt-3 font-serif text-xl text-[#2A2324]">
               Enfoque Mixto, Exploratorio y Descriptivo
             </h4>
-            <p className="mt-3 text-xs leading-relaxed text-[#4E4744]">
-              Combina datos cuantitativos mediante encuesta digital con opiniones cualitativas
-              abiertas de los participantes. Diseño <strong>no experimental y transversal</strong>,
-              dirigido principalmente a consumidores de Cadereyta Jiménez y Los Ramones, N.L., sin
-              manipulación de variables.
+            <p className="mt-2 text-xs leading-relaxed text-[#5A4C4F]">
+              Recopila datos cuantitativos mediante encuesta digital y elementos cualitativos
+              abiertos. Diseño <strong>no experimental y transversal</strong>, dirigido
+              principalmente a Cadereyta Jiménez y Los Ramones, Nuevo León.
             </p>
           </div>
 
-          <div className="border border-[#E8DFDC] bg-white p-6">
-            <span className="editorial-badge">B. Recolección (n = 108)</span>
-            <h4 className="mt-3 font-serif text-2xl text-[#141312]">
-              Hallazgos Cuantitativos Clave
+          <div className="rounded-md border border-[#F0E3E6] bg-white p-5">
+            <span className="editorial-badge">B. Recolección</span>
+            <h4 className="mt-3 font-serif text-xl text-[#2A2324]">
+              108 Respuestas Reales Analizadas
             </h4>
-            <ul className="mt-3 space-y-1.5 text-xs text-[#4E4744]">
-              <li>• <strong>Género:</strong> 86 femenino, 16 masculino (108 total).</li>
-              <li>• <strong>Edad:</strong> 57 de 19–23 años; 25 de 24–29 años.</li>
-              <li>• <strong>Residencia:</strong> 55 Cadereyta Jiménez; 34 Los Ramones.</li>
-              <li>• <strong>Frecuencia:</strong> 38 cada 2–3 meses; 29 una vez al mes.</li>
-              <li>• <strong>Gasto/compra:</strong> 39 (&gt;$800), 31 ($500–$800), 28 ($200–$500).</li>
-              <li>• <strong>Presupuesto/mes:</strong> 40 (&gt;$1,000), 30 ($300–$600).</li>
-              <li>• <strong>Piel:</strong> 39 mixta, 31 grasa.</li>
+            <ul className="mt-2 space-y-1 text-xs text-[#5A4C4F]">
+              <li>• Género: <strong>86 femenino</strong>, 16 masculino.</li>
+              <li>• Edad: <strong>57</strong> (19–23 años), <strong>25</strong> (24–29 años).</li>
+              <li>• Residencia: <strong>55 Cadereyta</strong>, <strong>34 Los Ramones</strong>.</li>
+              <li>• Frecuencia: <strong>38</strong> cada 2–3 meses, <strong>29</strong> mensual.</li>
+              <li>• Gasto/compra: <strong>39</strong> (&gt;$800), <strong>31</strong> ($500–$800), <strong>28</strong> ($200–$500).</li>
+              <li>• Presupuesto mensual: <strong>40</strong> (&gt;$1,000), <strong>30</strong> ($300–$600).</li>
             </ul>
           </div>
 
-          <div className="border border-[#E8DFDC] bg-white p-6">
-            <span className="editorial-badge">C. Interpretación</span>
-            <h4 className="mt-3 font-serif text-2xl text-[#141312]">
-              Decisiones Comerciales Derivadas
+          <div className="rounded-md border border-[#F0E3E6] bg-white p-5">
+            <span className="editorial-badge">C. Análisis</span>
+            <h4 className="mt-3 font-serif text-xl text-[#2A2324]">
+              Orientación del Catálogo y Difusión
             </h4>
-            <p className="mt-3 text-xs leading-relaxed text-[#4E4744]">
-              La <strong>calidad (53)</strong>, el <strong>precio (31)</strong>, los{' '}
-              <strong>ingredientes (31)</strong> y la <strong>marca (30)</strong> guían la
-              curaduría. El predominio de piel mixta y grasa justifica priorizar skincare calmante
-              (Centella) y bases matificantes, promocionados vía{' '}
-              <strong>Instagram Reels (38)</strong>, <strong>TikTok (37)</strong> y{' '}
-              <strong>recomendaciones (33)</strong>.
+            <p className="mt-2 text-xs leading-relaxed text-[#5A4C4F]">
+              Calidad (53), precio (31), ingredientes (31) y marca (30) definen la curaduría. El
+              alto volumen de piel mixta (39) y grasa (31) prioriza fórmulas ligeras y Centella,
+              promocionadas en Instagram Reels (38), TikTok (37) y recomendaciones (33).
             </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Real Survey Results: Most Requested Products & Brands */}
-      <div className="border border-[#E8DFDC] bg-white p-8">
-        <div className="flex items-center gap-2 text-[#B58681]">
-          <Sparkles className="h-4 w-4" />
-          <span className="text-[10px] font-semibold uppercase tracking-[0.2em]">
-            Resultados de Campo · Preferencias de Catálogo
-          </span>
-        </div>
-        <h3 className="mt-2 font-serif text-3xl text-[#141312]">
-          Productos y Marcas con Mayor Demanda en Cadereyta Jiménez
-        </h3>
-        <p className="mt-2 max-w-3xl text-sm text-[#6E6561]">
-          El estudio reveló que el público joven ya no busca únicamente maquillarse, sino cuidar su
-          piel antes del maquillaje, abriendo la oportunidad de ofrecer kits combinados de{' '}
-          <strong>«Skincare + Maquillaje»</strong> y rutinas educativas en TikTok.
-        </p>
-
-        <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-2">
-          {/* Maquillaje */}
-          <div className="border border-[#E8DFDC] bg-[#F4E3E0]/35 p-6">
-            <h4 className="font-serif text-2xl text-[#141312]">Categoría Maquillaje</h4>
-            <p className="mt-1 text-xs text-[#6E6561]">
-              Rango ideal validado por el 72%: <strong>$100 a $350 MXN</strong>
-            </p>
-            <p className="mt-4 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8C6B5D]">
-              Productos Más Solicitados
-            </p>
-            <ul className="mt-2 space-y-1.5 text-xs text-[#141312]">
-              {SURVEY_RESULTS_CATALOG.makeupProducts.map((p) => (
-                <li key={p} className="flex items-center gap-2">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-[#B58681]" />
-                  <span>{p}</span>
-                </li>
-              ))}
-            </ul>
-
-            <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8C6B5D]">
-              Marcas Preferidas
-            </p>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {SURVEY_RESULTS_CATALOG.makeupBrands.map((brand) => (
-                <span
-                  key={brand}
-                  className="border border-[#E8DFDC] bg-white px-2.5 py-1 text-[11px] font-medium text-[#141312]"
-                >
-                  {brand}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Skincare */}
-          <div className="border border-[#E8DFDC] bg-[#FAF7F5] p-6">
-            <h4 className="font-serif text-2xl text-[#141312]">Categoría Skincare (K-Beauty)</h4>
-            <p className="mt-1 text-xs text-[#6E6561]">
-              Rango ideal validado por el 72%: <strong>$150 a $400 MXN</strong>
-            </p>
-            <p className="mt-4 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8C6B5D]">
-              Productos Más Solicitados
-            </p>
-            <ul className="mt-2 space-y-1.5 text-xs text-[#141312]">
-              {SURVEY_RESULTS_CATALOG.skincareProducts.map((p) => (
-                <li key={p} className="flex items-center gap-2">
-                  <CheckCircle2 className="h-3.5 w-3.5 text-[#B58681]" />
-                  <span>{p}</span>
-                </li>
-              ))}
-            </ul>
-
-            <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.16em] text-[#8C6B5D]">
-              Marcas con Mayor Intención de Compra
-            </p>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {SURVEY_RESULTS_CATALOG.skincareBrands.map((brand) => (
-                <span
-                  key={brand}
-                  className="border border-[#E8DFDC] bg-white px-2.5 py-1 text-[11px] font-medium text-[#141312]"
-                >
-                  {brand}
-                </span>
-              ))}
-            </div>
           </div>
         </div>
       </div>
 
       {/* Implementación y Control + Planeación de Acciones */}
-      <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
-        <div className="border border-[#E8DFDC] bg-white p-7 lg:col-span-5">
-          <div className="flex items-center gap-2 text-[#B58681]">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
+        <div className="rounded-lg border border-[#F0E3E6] bg-white p-7 lg:col-span-5">
+          <div className="flex items-center gap-2 text-[#A8747C]">
             <Sliders className="h-4 w-4" />
             <span className="text-[10px] font-semibold uppercase tracking-[0.2em]">
               Implementación y Control
             </span>
           </div>
-          <h3 className="mt-2 font-serif text-2xl text-[#141312]">
-            Control Previo al Lanzamiento Comercial
+          <h3 className="mt-1.5 font-serif text-2xl text-[#2A2324]">
+            Seguimiento y Validación Previa
           </h3>
-          <p className="mt-3 text-xs leading-relaxed text-[#4E4744]">
-            Aunque el emprendimiento opera actualmente como prototipo académico sin lanzamiento
-            comercial definitivo, la etapa de implementación y control estructuró:
+          <p className="mt-3 text-xs leading-relaxed text-[#5A4C4F]">
+            La propuesta opera como prototipo académico e-commerce de gestión privada 100% en línea
+            sin establecimiento físico, priorizando el control en:
           </p>
-          <ul className="mt-4 space-y-2.5 text-xs text-[#4E4744]">
-            <li>• Validación de proveedores y costos de adquisición reales ($10,295.72 en 55 pzs).</li>
-            <li>• Organización de catálogo multimarca por categorías, tipo de piel y rango de precio.</li>
-            <li>• Diseño de estrategia de contenido visual exclusivo para Instagram y TikTok.</li>
-            <li>• Revisión periódica de viabilidad comercial, márgenes y retroalimentación de clientes.</li>
+          <ul className="mt-4 space-y-2 text-xs text-[#5A4C4F]">
+            <li className="flex items-start gap-2">
+              <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#A8747C]" />
+              <span>Evaluación continua de proveedores y costo real por pieza ($80.49 F+V).</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#A8747C]" />
+              <span>Equilibrio de inventario entre maquillaje viral y skincare con Centella.</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#A8747C]" />
+              <span>Contenido educativo en TikTok e Instagram Reels con enlace directo al catálogo.</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#A8747C]" />
+              <span>Revisión de interacción, opinión de clientes y rentabilidad antes de escalar.</span>
+            </li>
           </ul>
         </div>
 
-        <div className="border border-[#E8DFDC] bg-[#FAF7F5] p-7 lg:col-span-7">
-          <div className="flex items-center gap-2 text-[#B58681]">
+        <div className="rounded-lg border border-[#F0E3E6] bg-[#FCF8F9] p-7 lg:col-span-7">
+          <div className="flex items-center gap-2 text-[#A8747C]">
             <ListChecks className="h-4 w-4" />
             <span className="text-[10px] font-semibold uppercase tracking-[0.2em]">
-              Planeación de Acciones
+              Planeación de Acciones y Cronograma
             </span>
           </div>
-          <h3 className="mt-2 font-serif text-2xl text-[#141312]">
-            Secuencia Operativa 100% Digital
+          <h3 className="mt-1.5 font-serif text-2xl text-[#2A2324]">
+            Ruta de Desarrollo en 5 Fases
           </h3>
-          <div className="mt-5 space-y-3">
+          <div className="mt-4 space-y-3">
             {ACTION_PLAN_STEPS.map((step) => (
-              <div key={step.phase} className="flex gap-4 border border-[#E8DFDC] bg-white p-4">
-                <span className="shrink-0 bg-[#141312] px-2.5 py-1 font-mono text-[10px] text-white self-start">
+              <div key={step.phase} className="flex gap-3.5 rounded-md border border-[#F0E3E6] bg-white p-3.5">
+                <span className="shrink-0 self-start rounded-full bg-[#A8747C] px-2.5 py-0.5 font-mono text-[10px] text-white">
                   {step.phase}
                 </span>
                 <div>
-                  <h4 className="text-xs font-semibold uppercase tracking-[0.12em] text-[#141312]">
-                    {step.title}
-                  </h4>
-                  <p className="mt-1 text-xs leading-relaxed text-[#6E6561]">{step.desc}</p>
+                  <h4 className="text-xs font-semibold text-[#2A2324]">{step.title}</h4>
+                  <p className="mt-0.5 text-xs leading-relaxed text-[#6B5A5D]">{step.desc}</p>
                 </div>
               </div>
             ))}
@@ -213,26 +128,60 @@ export const MethodologyTab: React.FC = () => {
         </div>
       </div>
 
-      {/* Complete APA Bibliography (All 12 References from the Report) */}
-      <div className="border border-[#E8DFDC] bg-white p-8">
-        <div className="flex items-center gap-2 text-[#B58681]">
+      {/* Conclusiones y Recomendaciones Estratégicas */}
+      <div className="rounded-lg bg-[#F7E5E8] p-7">
+        <div className="flex items-center gap-2 text-[#8E5D65]">
+          <Award className="h-4 w-4" />
+          <span className="text-[10px] font-semibold uppercase tracking-[0.2em]">
+            Conclusiones y Recomendaciones del Estudio
+          </span>
+        </div>
+        <h3 className="mt-1.5 font-serif text-2xl text-[#2A2324]">
+          Viabilidad Validada para Cadereyta Jiménez y Los Ramones
+        </h3>
+        <div className="mt-4 grid grid-cols-1 gap-4 text-xs leading-relaxed text-[#4E4244] md:grid-cols-2">
+          <div className="rounded-md bg-white/85 p-4">
+            <p className="font-semibold text-[#2A2324]">Conclusión Principal</p>
+            <p className="mt-1.5">
+              Los 108 encuestados confirman una demanda local real y recurrente (48% mensual) por
+              maquillaje importado y skincare K-Beauty (especialmente Centella), validando precios
+              entre $100 y $400 MXN y haciendo viable un lanzamiento digital sin local físico.
+            </p>
+          </div>
+          <div className="rounded-md bg-white/85 p-4">
+            <p className="font-semibold text-[#2A2324]">Recomendaciones Clave</p>
+            <p className="mt-1.5">
+              Mantener stock balanceado maquillaje + skincare, crear kits combinados («piel sana +
+              maquillaje bonito»), publicar rutinas en TikTok/Reels para piel mixta y grasa, y
+              monitorear el margen del 20% por lote para reinvertir en las marcas más pedidas.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Bibliografía Oficial (12 Fuentes APA) */}
+      <div className="rounded-lg border border-[#F0E3E6] bg-white p-7">
+        <div className="flex items-center gap-2 text-[#A8747C]">
           <BookMarked className="h-4 w-4" />
           <span className="text-[10px] font-semibold uppercase tracking-[0.2em]">
             Referencias Bibliográficas Oficiales (12 Fuentes APA)
           </span>
         </div>
-        <h3 className="mt-2 font-serif text-3xl text-[#141312]">Bibliografía del Proyecto</h3>
+        <h3 className="mt-1.5 font-serif text-2xl text-[#2A2324]">Bibliografía</h3>
 
-        <div className="mt-6 space-y-6">
+        <div className="mt-5 space-y-5">
           {BIBLIOGRAPHY_GROUPS.map((group) => (
-            <div key={group.category} className="border-t border-[#E8DFDC] pt-5 first:border-t-0 first:pt-0">
-              <h4 className="font-sans text-[11px] font-semibold uppercase tracking-[0.16em] text-[#8C6B5D]">
+            <div
+              key={group.category}
+              className="border-t border-[#F3E7EA] pt-4 first:border-t-0 first:pt-0"
+            >
+              <h4 className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#A8747C]">
                 {group.category}
               </h4>
-              <ol className="mt-3 space-y-2 text-xs leading-relaxed text-[#4E4744]">
+              <ol className="mt-2.5 space-y-1.5 text-xs leading-relaxed text-[#5A4C4F]">
                 {group.entries.map((entry) => (
-                  <li key={entry.num} className="flex gap-3">
-                    <span className="font-mono text-[#B58681]">
+                  <li key={entry.num} className="flex gap-2.5">
+                    <span className="font-mono text-[#A8747C]">
                       {entry.num < 10 ? `0${entry.num}` : entry.num}.
                     </span>
                     <span>{entry.citation}</span>
