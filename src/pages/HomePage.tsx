@@ -312,26 +312,26 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* 6. PROYECTO INTEGRADOR UTC — Vibrant Editorial Cosmetics Brand Report */}
+      {/* 6. PROYECTO INTEGRADOR UTC — Aesthetic Rose / Dusty Mauve / Blush Brand Report */}
       <section
         id="proyecto-integrador"
-        className="border-y border-[#E6D4D1] bg-gradient-to-b from-[#FAF0EE] via-[#FDF8F7] to-[#F7ECEA] px-4 py-16 sm:px-6 lg:px-8"
+        className="border-y border-[#E9D3D8] bg-gradient-to-b from-[#F8E4E8] via-[#FCF4F6] to-[#F5DDE2] px-4 py-16 sm:px-6 lg:px-8"
       >
         <div className="mx-auto max-w-7xl">
-          {/* Colorful Editorial Masthead + 4 Color-Coded KPI Cards */}
+          {/* Aesthetic Masthead + 4 Harmonious Rose/Mauve KPI Cards */}
           <div className="grid grid-cols-1 items-end gap-8 lg:grid-cols-12">
             <div className="lg:col-span-7">
-              <span className="inline-block bg-[#6E2E3B] px-3 py-1.5 font-display text-[9px] font-bold uppercase tracking-[0.2em] text-[#FCEBE8]">
+              <span className="inline-block rounded-full bg-[#B26B7A] px-4 py-1.5 font-display text-[9px] font-bold uppercase tracking-[0.2em] text-white">
                 {PROJECT_META.institution} · {PROJECT_META.date}
               </span>
-              <h2 className="mt-4 font-display text-2xl font-bold uppercase leading-tight tracking-[0.03em] text-[#1D1517] sm:text-3xl">
+              <h2 className="mt-4 font-display text-2xl font-bold uppercase leading-tight tracking-[0.03em] text-[#3A2328] sm:text-3xl">
                 Reporte Técnico de Proyecto Integrador:{' '}
-                <span className="text-[#6E2E3B]">{PROJECT_META.title}</span>
+                <span className="text-[#A85E6E]">{PROJECT_META.title}</span>
               </h2>
-              <p className="mt-3 text-sm leading-relaxed text-[#57494B]">
+              <p className="mt-3 text-sm leading-relaxed text-[#5E454B]">
                 Estudio real de viabilidad comercial y preferencias de consumo (18 a 24 años) en{' '}
                 <strong>{PROJECT_META.region}</strong>. Equipo{' '}
-                <strong className="bg-white/80 px-1.5 py-0.5 font-mono text-xs text-[#6E2E3B]">
+                <strong className="rounded-sm bg-white/90 px-2 py-0.5 font-mono text-xs text-[#9E5666]">
                   {PROJECT_META.team}
                 </strong>{' '}
                 · Líder: <strong>{PROJECT_META.leader}</strong>.
@@ -339,40 +339,40 @@ export const HomePage: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:col-span-5 lg:grid-cols-2">
-              <div className="border border-[#EAD4D2] border-t-4 border-t-[#6E2E3B] bg-white p-4 shadow-sm">
-                <p className="font-display text-[9px] font-bold uppercase tracking-[0.16em] text-[#6E2E3B]">
+              <div className="rounded-md border border-[#EBD6DB] border-t-4 border-t-[#B26B7A] bg-white p-4 shadow-sm">
+                <p className="font-display text-[9px] font-bold uppercase tracking-[0.16em] text-[#B26B7A]">
                   Encuesta Real
                 </p>
-                <p className="mt-1 font-display text-2xl font-bold text-[#1D1517]">108</p>
-                <p className="text-[11px] text-[#6E6062]">55 Cadereyta · 34 Ramones</p>
+                <p className="mt-1 font-display text-2xl font-bold text-[#3A2328]">108</p>
+                <p className="text-[11px] text-[#7A6167]">55 Cadereyta · 34 Ramones</p>
               </div>
-              <div className="border border-[#EAD4D2] border-t-4 border-t-[#C6868B] bg-white p-4 shadow-sm">
-                <p className="font-display text-[9px] font-bold uppercase tracking-[0.16em] text-[#A86269]">
+              <div className="rounded-md border border-[#EBD6DB] border-t-4 border-t-[#C98E9B] bg-white p-4 shadow-sm">
+                <p className="font-display text-[9px] font-bold uppercase tracking-[0.16em] text-[#A86674]">
                   Rango Aceptado
                 </p>
-                <p className="mt-1 font-display text-2xl font-bold text-[#1D1517]">72%</p>
-                <p className="text-[11px] text-[#6E6062]">$100–$400 MXN</p>
+                <p className="mt-1 font-display text-2xl font-bold text-[#3A2328]">72%</p>
+                <p className="text-[11px] text-[#7A6167]">$100–$400 MXN</p>
               </div>
-              <div className="border border-[#D5E3D9] border-t-4 border-t-[#4E7A61] bg-[#F2F8F4] p-4 shadow-sm">
-                <p className="font-display text-[9px] font-bold uppercase tracking-[0.16em] text-[#3E6850]">
+              <div className="rounded-md border border-[#E7CDD3] border-t-4 border-t-[#D8A5B0] bg-[#FDF4F6] p-4 shadow-sm">
+                <p className="font-display text-[9px] font-bold uppercase tracking-[0.16em] text-[#A86674]">
                   Compra Mensual
                 </p>
-                <p className="mt-1 font-display text-2xl font-bold text-[#1D1517]">48%</p>
-                <p className="text-[11px] text-[#4C6657]">IG Reels & TikTok</p>
+                <p className="mt-1 font-display text-2xl font-bold text-[#3A2328]">48%</p>
+                <p className="text-[11px] text-[#7A6167]">IG Reels & TikTok</p>
               </div>
-              <div className="border border-[#6E2E3B] bg-gradient-to-br from-[#6E2E3B] to-[#4E1F29] p-4 text-white shadow-sm">
-                <p className="font-display text-[9px] font-bold uppercase tracking-[0.16em] text-[#F5D2D8]">
+              <div className="rounded-md bg-gradient-to-br from-[#B26B7A] to-[#8F4D5C] p-4 text-white shadow-sm">
+                <p className="font-display text-[9px] font-bold uppercase tracking-[0.16em] text-[#FCE6EB]">
                   Lote · Margen
                 </p>
                 <p className="mt-1 font-display text-2xl font-bold">55 pzs · 20%</p>
-                <p className="text-[11px] text-[#F2DCE0]">Mercancía $10,295.72</p>
+                <p className="text-[11px] text-[#F9DCE3]">Mercancía $10,295.72</p>
               </div>
             </div>
           </div>
 
-          {/* 4 Color-Rich Editorial Tabs */}
+          {/* 4 Aesthetic Rose/Mauve Tabs */}
           <div
-            className="mt-10 grid grid-cols-2 gap-2.5 border-t border-[#E6D4D1] pt-6 lg:grid-cols-4"
+            className="mt-10 grid grid-cols-2 gap-2.5 border-t border-[#E8CFD5] pt-6 lg:grid-cols-4"
             role="tablist"
             aria-label="Secciones del Reporte Técnico de Kaly Cosmetic's"
           >
@@ -386,15 +386,15 @@ export const HomePage: React.FC = () => {
                   role="tab"
                   aria-selected={active}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center justify-center gap-2 border px-4 py-3.5 transition-all duration-200 ${
+                  className={`flex items-center justify-center gap-2 rounded-md border px-4 py-3.5 transition-all duration-200 ${
                     active
-                      ? 'border-[#6E2E3B] bg-[#6E2E3B] text-white shadow-sm'
-                      : 'border-[#E6D4D1] bg-white text-[#2A1F21] hover:border-[#6E2E3B] hover:bg-[#FCEFED]'
+                      ? 'border-[#B26B7A] bg-[#B26B7A] text-white shadow-sm'
+                      : 'border-[#EBD6DB] bg-white text-[#4A2F35] hover:border-[#B26B7A] hover:bg-[#FDF2F4]'
                   }`}
                 >
                   <Icon
                     className={`h-3.5 w-3.5 shrink-0 ${
-                      active ? 'text-[#F5D2D8]' : 'text-[#A86269]'
+                      active ? 'text-[#FCE6EB]' : 'text-[#B26B7A]'
                     }`}
                   />
                   <span className="hidden font-display text-[10px] font-semibold uppercase tracking-[0.14em] sm:inline">
@@ -409,7 +409,7 @@ export const HomePage: React.FC = () => {
           </div>
 
           {/* Active Real-Data Report Container */}
-          <div className="mt-6 border border-[#E6D4D1] bg-white p-5 shadow-sm sm:p-8">
+          <div className="mt-6 rounded-md border border-[#EBD6DB] bg-white p-5 shadow-sm sm:p-8">
             {activeTab === 'resumen' && <ExecutiveSummaryTab />}
             {activeTab === 'metodologia' && <MethodologyTab />}
             {activeTab === 'encuesta' && <SurveyDataTab />}
