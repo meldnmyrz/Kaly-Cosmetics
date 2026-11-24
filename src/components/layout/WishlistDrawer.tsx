@@ -75,12 +75,12 @@ export const WishlistDrawer: React.FC = () => {
                   <Link
                     to={`/producto/${product.id}`}
                     onClick={closeWishlist}
-                    className="h-24 w-20 shrink-0 bg-[#F6F4F2]"
+                    className="flex h-24 w-20 shrink-0 items-center justify-center rounded-md border border-[#F0E3E6] bg-white p-1.5"
                   >
                     <img
                       src={product.images[0]}
                       alt={product.name}
-                      className="h-full w-full object-cover"
+                      className="h-full w-full object-contain"
                     />
                   </Link>
                   <div className="flex flex-1 flex-col justify-between">

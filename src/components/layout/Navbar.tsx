@@ -188,7 +188,7 @@ export const Navbar: React.FC = () => {
                       <img
                         src={item.images[0]}
                         alt={item.name}
-                        className="h-12 w-10 rounded-sm bg-[#FAF3F4] object-cover"
+                        className="h-12 w-10 rounded-sm border border-[#F0E3E6] bg-white object-contain p-1"
                       />
                       <div>
                         <p className="text-[10px] font-medium uppercase tracking-[0.12em] text-[#A8747C]">

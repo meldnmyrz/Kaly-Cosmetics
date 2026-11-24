@@ -126,12 +126,12 @@ export const CartDrawer: React.FC = () => {
                   <Link
                     to={`/producto/${item.product.id}`}
                     onClick={closeCart}
-                    className="h-24 w-20 shrink-0 bg-[#F6F4F2]"
+                    className="flex h-24 w-20 shrink-0 items-center justify-center rounded-md border border-[#F0E3E6] bg-white p-1.5"
                   >
                     <img
                       src={item.product.images[0]}
                       alt={item.product.name}
-                      className="h-full w-full object-cover"
+                      className="h-full w-full object-contain"
                     />
                   </Link>
 

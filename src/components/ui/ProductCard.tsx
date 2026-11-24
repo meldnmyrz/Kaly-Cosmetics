@@ -16,14 +16,14 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
   return (
     <article className="group flex h-full flex-col bg-white text-center transition-all duration-300">
-      {/* Clean Soft Studio Image Box */}
-      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm bg-[#FAF3F4]">
-        <Link to={`/producto/${product.id}`} className="block h-full w-full">
+      {/* Clean Soft Studio Image Box — uncropped real catalog photography */}
+      <div className="relative aspect-[4/5] w-full overflow-hidden rounded-lg border border-[#F3E7EA] bg-white">
+        <Link to={`/producto/${product.id}`} className="flex h-full w-full items-center justify-center p-4">
           <img
             src={product.images[0]}
             alt={product.name}
             loading="lazy"
-            className="h-full w-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+            className="h-full w-full object-contain object-center transition-transform duration-500 ease-out group-hover:scale-105"
           />
         </Link>
 
