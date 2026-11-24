@@ -312,64 +312,67 @@ export const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* 6. PROYECTO INTEGRADOR UTC — Full Real Data Executive Report (Architectural Luxury Style) */}
+      {/* 6. PROYECTO INTEGRADOR UTC — Vibrant Editorial Cosmetics Brand Report */}
       <section
         id="proyecto-integrador"
-        className="border-y border-[#EAE3E0] bg-[#FAF6F4] px-4 py-16 sm:px-6 lg:px-8"
+        className="border-y border-[#E6D4D1] bg-gradient-to-b from-[#FAF0EE] via-[#FDF8F7] to-[#F7ECEA] px-4 py-16 sm:px-6 lg:px-8"
       >
         <div className="mx-auto max-w-7xl">
-          {/* Masthead + 4 Real KPI Boxes */}
+          {/* Colorful Editorial Masthead + 4 Color-Coded KPI Cards */}
           <div className="grid grid-cols-1 items-end gap-8 lg:grid-cols-12">
             <div className="lg:col-span-7">
-              <span className="editorial-badge">
+              <span className="inline-block bg-[#6E2E3B] px-3 py-1.5 font-display text-[9px] font-bold uppercase tracking-[0.2em] text-[#FCEBE8]">
                 {PROJECT_META.institution} · {PROJECT_META.date}
               </span>
-              <h2 className="mt-4 font-display text-2xl font-bold uppercase leading-tight tracking-[0.04em] text-[#141312] sm:text-3xl">
-                Reporte Técnico de Proyecto Integrador: {PROJECT_META.title}
+              <h2 className="mt-4 font-display text-2xl font-bold uppercase leading-tight tracking-[0.03em] text-[#1D1517] sm:text-3xl">
+                Reporte Técnico de Proyecto Integrador:{' '}
+                <span className="text-[#6E2E3B]">{PROJECT_META.title}</span>
               </h2>
-              <p className="mt-3 text-sm leading-relaxed text-[#574D4A]">
+              <p className="mt-3 text-sm leading-relaxed text-[#57494B]">
                 Estudio real de viabilidad comercial y preferencias de consumo (18 a 24 años) en{' '}
                 <strong>{PROJECT_META.region}</strong>. Equipo{' '}
-                <strong className="font-mono text-xs text-[#141312]">{PROJECT_META.team}</strong> ·
-                Líder: <strong>{PROJECT_META.leader}</strong>.
+                <strong className="bg-white/80 px-1.5 py-0.5 font-mono text-xs text-[#6E2E3B]">
+                  {PROJECT_META.team}
+                </strong>{' '}
+                · Líder: <strong>{PROJECT_META.leader}</strong>.
               </p>
             </div>
 
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:col-span-5 lg:grid-cols-2">
-              <div className="border border-[#EAE3E0] bg-white p-4">
-                <p className="font-display text-[9px] font-bold uppercase tracking-[0.16em] text-[#B5817E]">
+              <div className="border border-[#EAD4D2] border-t-4 border-t-[#6E2E3B] bg-white p-4 shadow-sm">
+                <p className="font-display text-[9px] font-bold uppercase tracking-[0.16em] text-[#6E2E3B]">
                   Encuesta Real
                 </p>
-                <p className="mt-1 font-display text-2xl font-bold text-[#141312]">108</p>
-                <p className="text-[11px] text-[#6E6663]">55 Cadereyta · 34 Ramones</p>
+                <p className="mt-1 font-display text-2xl font-bold text-[#1D1517]">108</p>
+                <p className="text-[11px] text-[#6E6062]">55 Cadereyta · 34 Ramones</p>
               </div>
-              <div className="border border-[#EAE3E0] bg-white p-4">
-                <p className="font-display text-[9px] font-bold uppercase tracking-[0.16em] text-[#B5817E]">
+              <div className="border border-[#EAD4D2] border-t-4 border-t-[#C6868B] bg-white p-4 shadow-sm">
+                <p className="font-display text-[9px] font-bold uppercase tracking-[0.16em] text-[#A86269]">
                   Rango Aceptado
                 </p>
-                <p className="mt-1 font-display text-2xl font-bold text-[#141312]">72%</p>
-                <p className="text-[11px] text-[#6E6663]">$100–$400 MXN</p>
+                <p className="mt-1 font-display text-2xl font-bold text-[#1D1517]">72%</p>
+                <p className="text-[11px] text-[#6E6062]">$100–$400 MXN</p>
               </div>
-              <div className="border border-[#EAE3E0] bg-[#F7E3E0]/60 p-4">
-                <p className="font-display text-[9px] font-bold uppercase tracking-[0.16em] text-[#8E6562]">
+              <div className="border border-[#D5E3D9] border-t-4 border-t-[#4E7A61] bg-[#F2F8F4] p-4 shadow-sm">
+                <p className="font-display text-[9px] font-bold uppercase tracking-[0.16em] text-[#3E6850]">
                   Compra Mensual
                 </p>
-                <p className="mt-1 font-display text-2xl font-bold text-[#141312]">48%</p>
-                <p className="text-[11px] text-[#6E6663]">IG Reels & TikTok</p>
+                <p className="mt-1 font-display text-2xl font-bold text-[#1D1517]">48%</p>
+                <p className="text-[11px] text-[#4C6657]">IG Reels & TikTok</p>
               </div>
-              <div className="border border-[#141312] bg-[#141312] p-4 text-white">
-                <p className="font-display text-[9px] font-bold uppercase tracking-[0.16em] text-[#EBD7D4]">
+              <div className="border border-[#6E2E3B] bg-gradient-to-br from-[#6E2E3B] to-[#4E1F29] p-4 text-white shadow-sm">
+                <p className="font-display text-[9px] font-bold uppercase tracking-[0.16em] text-[#F5D2D8]">
                   Lote · Margen
                 </p>
                 <p className="mt-1 font-display text-2xl font-bold">55 pzs · 20%</p>
-                <p className="text-[11px] text-[#CFC7C4]">Mercancía $10,295.72</p>
+                <p className="text-[11px] text-[#F2DCE0]">Mercancía $10,295.72</p>
               </div>
             </div>
           </div>
 
-          {/* 4 Sharp Architectural Tabs */}
+          {/* 4 Color-Rich Editorial Tabs */}
           <div
-            className="mt-10 grid grid-cols-2 gap-2 border-t border-[#EAE3E0] pt-6 lg:grid-cols-4"
+            className="mt-10 grid grid-cols-2 gap-2.5 border-t border-[#E6D4D1] pt-6 lg:grid-cols-4"
             role="tablist"
             aria-label="Secciones del Reporte Técnico de Kaly Cosmetic's"
           >
@@ -385,13 +388,13 @@ export const HomePage: React.FC = () => {
                   onClick={() => setActiveTab(tab.id)}
                   className={`flex items-center justify-center gap-2 border px-4 py-3.5 transition-all duration-200 ${
                     active
-                      ? 'border-[#141312] bg-[#141312] text-white'
-                      : 'border-[#E5DDD9] bg-white text-[#141312] hover:border-[#141312]'
+                      ? 'border-[#6E2E3B] bg-[#6E2E3B] text-white shadow-sm'
+                      : 'border-[#E6D4D1] bg-white text-[#2A1F21] hover:border-[#6E2E3B] hover:bg-[#FCEFED]'
                   }`}
                 >
                   <Icon
                     className={`h-3.5 w-3.5 shrink-0 ${
-                      active ? 'text-[#EBD7D4]' : 'text-[#B5817E]'
+                      active ? 'text-[#F5D2D8]' : 'text-[#A86269]'
                     }`}
                   />
                   <span className="hidden font-display text-[10px] font-semibold uppercase tracking-[0.14em] sm:inline">
@@ -406,7 +409,7 @@ export const HomePage: React.FC = () => {
           </div>
 
           {/* Active Real-Data Report Container */}
-          <div className="mt-6 border border-[#EAE3E0] bg-white p-5 sm:p-8">
+          <div className="mt-6 border border-[#E6D4D1] bg-white p-5 shadow-sm sm:p-8">
             {activeTab === 'resumen' && <ExecutiveSummaryTab />}
             {activeTab === 'metodologia' && <MethodologyTab />}
             {activeTab === 'encuesta' && <SurveyDataTab />}
